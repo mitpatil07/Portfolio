@@ -20,14 +20,16 @@
   --bg-primary: #F8FAFC;
   --text-primary: #0F172A;
   --text-secondary: #64748B;
-  --card-bg: rgba(255, 255, 255, 0.7);
-  --card-border: rgba(94, 95, 239, 0.1);
+  --card-bg: rgba(255, 255, 255, 0.6);
+  --card-bg-tinted: rgba(93, 95, 239, 0.04);
+  /* Subtle brand blue tint */
+  --card-border: rgba(94, 95, 239, 0.12);
   --accent-main: #5D5FEF;
   --accent-bold: #4338CA;
   --accent-light: #7895FA;
   --accent-subtle: #F1F5F9;
   --glass-opacity: 0.75;
-  --glass-blur: 24px;
+  --glass-blur: 20px;
 }
 
 @layer base {
@@ -58,13 +60,13 @@ html {
 
 /* Premium Adaptive Glass Cards (Forced Light) */
 .premium-glass {
-  background: var(--card-bg);
+  background: linear-gradient(135deg, var(--card-bg), var(--card-bg-tinted));
   backdrop-filter: blur(var(--glass-blur));
   -webkit-backdrop-filter: blur(var(--glass-blur));
   border: 1px solid var(--card-border);
   box-shadow:
-    0 10px 40px -10px rgba(0, 0, 0, 0.1),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+    0 10px 40px -10px rgba(0, 0, 0, 0.05),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.4);
   transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 

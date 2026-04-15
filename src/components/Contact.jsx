@@ -56,7 +56,8 @@ const Contact = () => {
     return (
         <section id="contact" className="py-16 md:py-24 relative z-10">
 
-            <div className="absolute inset-6 md:inset-10 border border-brand-300/20 rounded-3xl pointer-events-none hidden md:block" />
+            {/* Outer decorative border with tinted glass effect */}
+            <div className="absolute inset-6 md:inset-10 border border-brand-300/15 rounded-3xl pointer-events-none hidden md:block backdrop-blur-[3px] bg-brand-500/[0.03] shadow-[inset_0_0_80px_rgba(120,149,250,0.2)]" />
 
             <div className="container mx-auto px-5 sm:px-8 max-w-3xl relative z-20">
 
@@ -155,7 +156,7 @@ const Contact = () => {
                         whileInView={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.5, delay: 0.25 }}
                         viewport={{ once: false }}
-                        className="premium-glass rounded-2xl p-5 sm:p-7 text-left border border-slate-200/50 shadow-2xl relative overflow-hidden"
+                        className="premium-glass rounded-2xl p-5 sm:p-7 text-left border border-slate-200/50 shadow-2xl relative overflow-hidden bg-brand-50/20 backdrop-blur-xl"
                     >
                         <AnimatePresence>
                             {status === 'success' && (

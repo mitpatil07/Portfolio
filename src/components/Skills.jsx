@@ -95,21 +95,21 @@ const Skills = () => {
                             key={index}
                             variants={cardVariants}
                             whileHover={{ y: -5 }}
-                            className="premium-glass rounded-2xl p-6 border border-brand-300/25 flex flex-col group h-full shadow-lg shadow-brand-900/5"
+                            className="premium-glass rounded-2xl p-6 border border-slate-200/50 flex flex-col group h-full shadow-2xl"
                         >
                             <div className="flex items-center gap-4 mb-5">
                                 <motion.div
                                     whileHover={{ scale: 1.1, rotate: 5 }}
-                                    className={`w-11 h-11 rounded-xl flex items-center justify-center shadow-sm ${category.iconBg}`}
+                                    className={`w-11 h-11 rounded-xl flex items-center justify-center shadow-lg ${category.iconBg}`}
                                 >
                                     <category.icon size={22} />
                                 </motion.div>
-                                <h3 className="text-base sm:text-lg font-black text-slate-800 group-hover:text-brand-900 transition-colors tracking-tight">
+                                <h3 className="text-base sm:text-lg font-black text-slate-800 group-hover:text-brand-600 transition-colors tracking-tight">
                                     {category.title}
                                 </h3>
                             </div>
 
-                            <p className="text-slate-500 text-xs sm:text-sm font-medium leading-relaxed mb-5 text-justify">
+                            <p className="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed mb-5 text-justify">
                                 {category.desc}
                             </p>
 
@@ -120,8 +120,8 @@ const Skills = () => {
                                         initial={{ opacity: 0, scale: 0.8 }}
                                         whileInView={{ opacity: 1, scale: 1 }}
                                         transition={{ delay: 0.1 + (i * 0.05) }}
-                                        whileHover={{ scale: 1.05, backgroundColor: 'rgba(238, 242, 255, 1)' }}
-                                        className="px-3 py-1.5 bg-brand-50/50 text-brand-800 rounded-lg border border-brand-200/50 text-[11px] sm:text-xs font-bold transition-all"
+                                        whileHover={{ scale: 1.05, backgroundColor: 'rgba(120, 149, 250, 0.2)' }}
+                                        className="px-3 py-1.5 bg-brand-50 text-brand-600 rounded-lg border border-brand-200 text-[11px] sm:text-xs font-bold transition-all"
                                     >
                                         {skill}
                                     </motion.span>

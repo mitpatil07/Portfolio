@@ -89,7 +89,7 @@ const Hero = () => {
                             href="#projects"
                             whileHover={{ scale: 1.02, y: -2 }}
                             whileTap={{ scale: 0.98 }}
-                            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3 bg-brand-900 text-white text-sm font-bold rounded-xl shadow-lg shadow-brand-900/25 transition-shadow hover:shadow-brand-600/40"
+                            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3 bg-brand-600 text-white text-sm font-bold rounded-xl shadow-lg shadow-brand-600/25 transition-shadow hover:shadow-brand-500/40"
                         >
                             Explore Projects <FiArrowUpRight size={15} />
                         </motion.a>
@@ -97,7 +97,7 @@ const Hero = () => {
                             href="#contact"
                             whileHover={{ scale: 1.02, y: -2 }}
                             whileTap={{ scale: 0.98 }}
-                            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3 bg-white text-brand-900 text-sm font-bold rounded-xl shadow-sm border border-slate-100 hover:border-brand-300 hover:bg-brand-50 transition-all"
+                            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3 bg-white text-brand-600 text-sm font-bold rounded-xl shadow-sm border border-slate-100 hover:border-brand-500 hover:bg-brand-50 lg:hover:bg-brand-500/10 transition-all font-sans"
                         >
                             Let's Talk <HiArrowRight size={14} />
                         </motion.a>

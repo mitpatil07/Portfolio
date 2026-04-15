@@ -22,7 +22,7 @@ const educationData = [
 
 const Education = () => {
     return (
-        <section id="education" className="py-16 md:py-24 relative z-10 bg-white">
+        <section id="education" className="py-16 md:py-24 relative z-10">
             <div className="container mx-auto px-5 sm:px-8 max-w-3xl">
                 {/* Header */}
                 <motion.div
@@ -45,34 +45,34 @@ const Education = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: index * 0.1 }}
                             viewport={{ once: false, amount: 0.1 }}
-                            className="premium-glass p-5 sm:p-6 rounded-2xl border border-brand-300/35 group hover:shadow-lg hover:shadow-brand-300/15 transition-all duration-400"
+                            className="premium-glass p-5 sm:p-6 rounded-2xl border border-slate-200/50 group shadow-xl transition-all duration-400"
                         >
                             <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
                                 <div className="flex-1 min-w-0">
-                                    <span className="inline-flex items-center gap-1.5 text-brand-900 font-bold uppercase tracking-wider text-[10px] mb-2">
+                                    <span className="inline-flex items-center gap-1.5 text-brand-600 font-bold uppercase tracking-wider text-[10px] mb-2">
                                         <span className="w-1.5 h-1.5 rounded-full bg-brand-600 flex-shrink-0" />
                                         {edu.institution}
                                     </span>
-                                    <h3 className="text-base sm:text-lg font-black text-slate-800 mb-1 leading-snug group-hover:text-brand-900 transition-colors">
+                                    <h3 className="text-base sm:text-lg font-black text-slate-800 mb-1 leading-snug group-hover:text-brand-600 transition-colors">
                                         {edu.degree}
                                     </h3>
-                                    <p className="text-slate-400 text-xs sm:text-sm font-semibold">{edu.location}</p>
+                                    <p className="text-slate-500 text-xs sm:text-sm font-semibold">{edu.location}</p>
                                 </div>
 
                                 <div className="flex sm:flex-col items-center sm:items-end gap-2 sm:gap-1.5 flex-shrink-0">
-                                    <span className="px-3 py-1 bg-brand-900 text-white text-xs font-bold tracking-wide uppercase rounded-lg shadow-sm">
+                                    <span className="px-3 py-1 bg-brand-600/10 border border-brand-500/20 text-brand-600 text-xs font-bold tracking-wide uppercase rounded-lg shadow-sm">
                                         {edu.year}
                                     </span>
-                                    <span className="px-3 py-1 bg-white border border-brand-300 text-brand-900 text-xs font-bold rounded-lg shadow-sm">
+                                    <span className="px-3 py-1 bg-slate-50 border border-slate-200 text-slate-800 text-xs font-bold rounded-lg shadow-sm">
                                         {edu.grade}
                                     </span>
                                 </div>
                             </div>
 
                             {edu.details && (
-                                <div className="mt-4 pt-3 border-t border-brand-300/30">
-                                    <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1.5">Focus Areas</p>
-                                    <p className="text-slate-500 text-xs sm:text-sm leading-relaxed font-medium text-justify">
+                                <div className="mt-4 pt-3 border-t border-slate-100">
+                                    <p className="text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">Focus Areas</p>
+                                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-medium text-justify">
                                         {edu.details}
                                     </p>
                                 </div>

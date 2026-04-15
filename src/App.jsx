@@ -19,7 +19,7 @@ function App() {
         initial={{ backgroundPosition: "0% 0%" }}
         animate={{ backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"] }}
         transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-        className="min-h-screen font-sans text-slate-800 bg-mesh relative overflow-hidden selection:bg-brand-300 selection:text-brand-900 z-0"
+        className="min-h-screen font-sans bg-mesh relative overflow-hidden selection:bg-brand-300 selection:text-white z-0"
       >
         {/* Interactive Canvas Particle Animation (Antigravity effect) */}
         <ParticleBackground />

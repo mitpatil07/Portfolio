@@ -85,10 +85,10 @@ const Contact = () => {
                                 viewport={{ once: false }}
                                 className="flex items-start gap-3"
                             >
-                                <div className="w-7 h-7 rounded-lg bg-brand-50 border border-brand-300/40 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                    <h.icon className="text-brand-600 text-sm" />
+                                <div className="w-7 h-7 rounded-lg bg-brand-600 border border-brand-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <h.icon className="text-white text-sm" />
                                 </div>
-                                <p className="text-xs sm:text-sm text-slate-500 font-medium leading-relaxed">{h.text}</p>
+                                <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">{h.text}</p>
                             </motion.div>
                         ))}
                     </div>
@@ -141,7 +141,7 @@ const Contact = () => {
                 >
                     <div className="text-center mb-5">
                         <h3 className="text-xl sm:text-2xl font-black text-slate-800 mb-1">
-                            Hire <span className="text-brand-900">Me</span>
+                            Hire <span className="text-brand-600">Me</span>
                         </h3>
                         <p className="text-xs sm:text-sm text-slate-500 font-medium max-w-sm mx-auto">
                             Looking for someone who codes with passion and vision? Let's make it official.
@@ -155,7 +155,7 @@ const Contact = () => {
                         whileInView={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.5, delay: 0.25 }}
                         viewport={{ once: false }}
-                        className="premium-glass rounded-2xl p-5 sm:p-7 text-left border border-brand-300/30 shadow-xl shadow-brand-900/6 relative overflow-hidden"
+                        className="premium-glass rounded-2xl p-5 sm:p-7 text-left border border-slate-200/50 shadow-2xl relative overflow-hidden"
                     >
                         <AnimatePresence>
                             {status === 'success' && (
@@ -165,11 +165,11 @@ const Contact = () => {
                                     exit={{ opacity: 0, y: -10 }}
                                     className="absolute inset-0 z-50 bg-white/95 backdrop-blur-md flex flex-col items-center justify-center text-center p-6"
                                 >
-                                    <div className="w-16 h-16 bg-green-50 text-green-600 rounded-full flex items-center justify-center mb-4 border border-green-200 shadow-sm">
+                                    <div className="w-16 h-16 bg-green-500/10 text-green-600 rounded-full flex items-center justify-center mb-4 border border-green-500/20 shadow-sm">
                                         <MdSend size={32} />
                                     </div>
                                     <h4 className="text-xl font-black text-slate-800 mb-1">Message Sent!</h4>
-                                    <p className="text-sm text-slate-500 font-medium px-4">Thanks for reaching out! I've received your message and will reply shortly.</p>
+                                    <p className="text-sm text-slate-600 font-medium px-4">Thanks for reaching out! I've received your message and will reply shortly.</p>
                                 </motion.div>
                             )}
                             {status === 'error' && (
@@ -179,17 +179,17 @@ const Contact = () => {
                                     exit={{ opacity: 0, y: -10 }}
                                     className="absolute inset-0 z-50 bg-white/95 backdrop-blur-md flex flex-col items-center justify-center text-center p-6"
                                 >
-                                    <div className="w-16 h-16 bg-red-50 text-red-600 rounded-full flex items-center justify-center mb-4 border border-red-200 shadow-sm">
+                                    <div className="w-16 h-16 bg-red-500/10 text-red-600 rounded-full flex items-center justify-center mb-4 border border-red-500/20 shadow-sm">
                                         <MdSend size={32} className="rotate-180" />
                                     </div>
                                     <h4 className="text-xl font-black text-slate-800 mb-1">Oops!</h4>
-                                    <p className="text-sm text-slate-500 font-medium shadow-sm">Something went wrong. Please try again or email me directly.</p>
+                                    <p className="text-sm text-slate-600 font-medium shadow-sm">Something went wrong. Please try again or email me directly.</p>
                                 </motion.div>
                             )}
                         </AnimatePresence>
 
                         <div className="flex flex-col gap-5">
-                            <div className="border-b border-slate-200 focus-within:border-brand-600 transition-colors">
+                            <div className="border-b border-slate-200 focus-within:border-brand-500 transition-colors">
                                 <input
                                     type="text"
                                     name="name"
@@ -198,7 +198,7 @@ const Contact = () => {
                                     required
                                 />
                             </div>
-                            <div className="border-b border-slate-200 focus-within:border-brand-600 transition-colors">
+                            <div className="border-b border-slate-200 focus-within:border-brand-500 transition-colors">
                                 <input
                                     type="email"
                                     name="email"
@@ -207,7 +207,7 @@ const Contact = () => {
                                     required
                                 />
                             </div>
-                            <div className="border-b border-slate-200 focus-within:border-brand-600 transition-colors">
+                            <div className="border-b border-slate-200 focus-within:border-brand-500 transition-colors">
                                 <textarea
                                     name="message"
                                     placeholder="Your Message"
@@ -223,7 +223,7 @@ const Contact = () => {
                                 whileTap={{ scale: 0.98 }}
                                 className={`mt-2 flex items-center justify-center gap-2 w-full py-3 rounded-xl font-bold text-sm text-white transition-all shadow-md ${status === 'sending'
                                     ? 'bg-slate-400 cursor-not-allowed opacity-70'
-                                    : 'bg-gradient-to-r from-purple-500 to-brand-900 hover:opacity-90 shadow-brand-900/15'
+                                    : 'bg-gradient-to-r from-brand-600 to-brand-900 hover:opacity-90 shadow-brand-900/15'
                                     }`}
                             >
                                 {status === 'sending' ? (

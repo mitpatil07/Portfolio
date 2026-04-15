@@ -1,8 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt, FaRobot, FaShoppingBag, FaQuestionCircle, FaBookOpen } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt, FaRobot, FaShoppingBag, FaQuestionCircle, FaBookOpen, FaUsers } from 'react-icons/fa';
 
 const projects = [
+    {
+        title: "NGO Management System",
+        techStack: ["MongoDB", "Express", "React", "Node.js"],
+        description: "A comprehensive full-stack platform engineered to streamline NGO operations, including resource management, user coordination, and complex data handling. Features a modular architecture for high scalability and a user-centric interface.",
+        links: { github: "https://github.com/Kalpeshk22/NGO-FOOD-Project" },
+        icon: FaUsers,
+        gradient: "from-rose-500 to-red-600"
+    },
     {
         title: "DurgSetu AI",
         techStack: ["React", "Django", "OpenCV", "MySQL"],
@@ -13,7 +21,7 @@ const projects = [
     },
     {
         title: "Whatyouwear",
-        techStack: ["React", "Express", "Node.js", "MongoDB"],
+        techStack: ["React", "Django", "OpenCV", "MySQL"],
         description: "A comprehensive full-stack e-commerce platform offering responsive UI, secure user authentication, modular product catalog management, and seamless end-to-end checkout integration.",
         links: { github: "https://github.com/mitpatil07/E-commerce", live: "https://www.whatyouwear.store/" },
         icon: FaShoppingBag,
@@ -21,7 +29,7 @@ const projects = [
     },
     {
         title: "Quizora",
-        techStack: ["React.js", "Node.js", "Express", "MongoDB"],
+        techStack: ["React", "Django", "OpenCV", "MySQL"],
         description: "Interactive web-based quiz application providing a dynamic testing platform with real-time score tracking. Engineered a modular MERN backend to efficiently handle scalable quiz logic and dynamic question rendering.",
         links: { github: "https://github.com/mitpatil07/QuizApp" },
         icon: FaQuestionCircle,
@@ -29,7 +37,7 @@ const projects = [
     },
     {
         title: "BookNest",
-        techStack: ["React.js", "Express.js", "Node.js", "MongoDB"],
+        techStack: ["React", "Django", "OpenCV", "MySQL"],
         description: "Full-stack digital library management system featuring a responsive React frontend coupled with a robust backend, enabling scalable CRUD operations for comprehensive book collection exploration.",
         links: { github: "https://github.com/mitpatil07/BookNest" },
         icon: FaBookOpen,
@@ -64,7 +72,7 @@ const Projects = () => {
                             transition={{ duration: 0.65, ease: "easeOut", delay: index * 0.08 }}
                             viewport={{ once: false, amount: 0.1 }}
                             whileHover={{ y: -3 }}
-                            className="premium-glass rounded-2xl p-5 sm:p-7 border border-slate-100 flex flex-col md:flex-row gap-5 md:gap-7 cursor-default group"
+                            className="premium-glass rounded-2xl p-5 sm:p-7 border border-slate-200/50 flex flex-col md:flex-row gap-5 md:gap-7 cursor-default group shadow-xl"
                         >
                             {/* Visual Preview Badge */}
                             <div className="flex-shrink-0 w-full md:w-56 h-40 md:h-auto relative rounded-xl overflow-hidden shadow-inner group-hover:shadow-md transition-all duration-500">
@@ -76,18 +84,18 @@ const Projects = () => {
                             {/* Content */}
                             <div className="flex flex-col justify-between flex-1 min-w-0">
                                 <div>
-                                    <h3 className="text-xl sm:text-2xl font-black text-slate-800 mb-2 hover:text-brand-900 transition-colors">
+                                    <h3 className="text-xl sm:text-2xl font-black text-slate-800 mb-2 hover:text-brand-600 transition-colors">
                                         {project.title}
                                     </h3>
-                                    <p className="text-slate-500 text-sm leading-relaxed font-medium mb-4 text-justify">
+                                    <p className="text-slate-600 text-sm leading-relaxed font-medium mb-4 text-justify">
                                         {project.description}
                                     </p>
                                     <div className="flex flex-wrap gap-1.5 mb-5">
                                         {project.techStack.map((tech, i) => (
                                             <motion.span
                                                 key={i}
-                                                whileHover={{ scale: 1.05 }}
-                                                className="px-2.5 py-1 bg-brand-50 text-brand-900 rounded-lg border border-brand-300/50 text-xs font-bold"
+                                                whileHover={{ scale: 1.05, backgroundColor: 'rgba(120, 149, 250, 0.2)' }}
+                                                className="px-2.5 py-1 bg-brand-50 text-brand-600 rounded-lg border border-brand-200 text-xs font-bold"
                                             >
                                                 {tech}
                                             </motion.span>
@@ -101,7 +109,7 @@ const Projects = () => {
                                         whileHover={{ scale: 1.05, x: 2 }}
                                         className="flex items-center gap-2 text-xs font-bold text-slate-500 hover:text-brand-600 transition-colors uppercase tracking-widest"
                                     >
-                                        <div className="w-7 h-7 rounded-lg bg-white border border-slate-200 flex items-center justify-center hover:border-brand-300 shadow-sm transition-colors">
+                                        <div className="w-7 h-7 rounded-lg bg-slate-50 border border-slate-200 flex items-center justify-center hover:border-brand-500 shadow-sm transition-colors">
                                             <FaGithub size={13} />
                                         </div>
                                         Source
@@ -114,7 +122,7 @@ const Projects = () => {
                                             whileHover={{ scale: 1.05, x: 2 }}
                                             className="flex items-center gap-2 text-xs font-bold text-slate-500 hover:text-brand-600 transition-colors uppercase tracking-widest"
                                         >
-                                            <div className="w-7 h-7 rounded-lg bg-white border border-slate-200 flex items-center justify-center hover:border-brand-300 shadow-sm transition-colors">
+                                            <div className="w-7 h-7 rounded-lg bg-slate-50 border border-slate-200 flex items-center justify-center hover:border-brand-500 shadow-sm transition-colors">
                                                 <FaExternalLinkAlt size={11} />
                                             </div>
                                             Live Demo

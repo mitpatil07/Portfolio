@@ -52,12 +52,12 @@ const Summary = () => {
                         viewport={{ once: false }}
                         className="lg:col-span-7"
                     >
-                        <div className="premium-glass rounded-3xl p-6 sm:p-10 border border-brand-300/25 shadow-xl shadow-brand-900/5 relative overflow-hidden">
+                        <div className="premium-glass rounded-3xl p-6 sm:p-10 border border-slate-200/50 shadow-2xl relative overflow-hidden">
                             {/* Subtle corner accent */}
-                            <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-brand-100/40 to-transparent -mr-12 -mt-12 rounded-full" />
+                            <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-brand-600/10 to-transparent -mr-12 -mt-12 rounded-full" />
 
                             <div className="text-slate-600 text-base sm:text-lg leading-relaxed font-medium text-left space-y-6 relative z-10">
-                                <p className="text-slate-900 text-2xl sm:text-3xl font-black leading-tight tracking-tight">
+                                <p className="text-slate-800 text-2xl sm:text-3xl font-black leading-tight tracking-tight">
                                     I bridge the gap between <span className="text-brand-600">complex logic</span> and <span className="text-purple-600">seamless user experiences</span>.
                                 </p>
                                 <p className="opacity-90">
@@ -80,9 +80,9 @@ const Summary = () => {
                                 transition={{ duration: 0.5, delay: i * 0.1 }}
                                 viewport={{ once: false }}
                                 whileHover={{ scale: 1.02, x: 5 }}
-                                className="premium-glass p-5 rounded-2xl border border-brand-300/20 flex items-center gap-4 group transition-all"
+                                className="premium-glass p-5 rounded-2xl border border-brand-500/10 flex items-center gap-4 group transition-all"
                             >
-                                <div className="w-12 h-12 rounded-xl bg-brand-50 border border-brand-200 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-900 group-hover:text-white transition-all duration-300">
+                                <div className="w-12 h-12 rounded-xl bg-brand-50 border border-brand-200 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-600 text-brand-600 group-hover:text-white transition-all duration-300">
                                     <stat.icon size={22} />
                                 </div>
                                 <div>

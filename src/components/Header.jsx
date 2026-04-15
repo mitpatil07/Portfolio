@@ -71,10 +71,10 @@ const Header = () => {
                             <motion.a
                                 key={link.title}
                                 variants={linkVariants}
-                                whileHover={{ scale: 1.05, backgroundColor: 'rgba(245, 243, 255, 0.8)' }}
+                                whileHover={{ scale: 1.05, backgroundColor: 'rgba(120, 149, 250, 0.1)' }}
                                 whileTap={{ scale: 0.95 }}
                                 href={link.href}
-                                className="px-3 xl:px-4 py-2 text-[11px] lg:text-xs font-black text-slate-500 hover:text-brand-900 rounded-full transition-colors uppercase tracking-[0.15em]"
+                                className="px-3 xl:px-4 py-2 text-[11px] lg:text-xs font-black text-slate-500 hover:text-brand-600 rounded-full transition-colors uppercase tracking-[0.15em]"
                                 onClick={(e) => {
                                     e.preventDefault();
                                     window.lenis?.scrollTo(link.href);
@@ -96,7 +96,7 @@ const Header = () => {
                             whileHover={{ scale: 1.05, backgroundColor: '#4C4FDF' }}
                             whileTap={{ scale: 0.95 }}
                             href="#contact"
-                            className="inline-flex items-center justify-center gap-1.5 px-6 py-2.5 rounded-full bg-brand-900 text-white text-[11px] lg:text-xs font-black shadow-lg shadow-brand-900/30 uppercase tracking-[0.15em] whitespace-nowrap transition-colors"
+                            className="inline-flex items-center justify-center gap-1.5 px-6 py-2.5 rounded-full bg-brand-600 text-white text-[11px] lg:text-xs font-black shadow-lg shadow-brand-600/30 uppercase tracking-[0.15em] whitespace-nowrap transition-colors"
                         >
                             Hire Me <FiArrowUpRight size={14} className="mt-[-1px]" />
                         </motion.a>
@@ -122,7 +122,7 @@ const Header = () => {
                             animate={{ height: 'auto', opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
                             transition={{ duration: 0.3 }}
-                            className="md:hidden overflow-hidden w-full bg-white/95 backdrop-blur-2xl rounded-2xl mt-3 shadow-xl border border-slate-100/50"
+                            className="md:hidden overflow-hidden w-full premium-glass rounded-2xl mt-3 shadow-xl border border-slate-200/50"
                         >
                             <div className="flex flex-col py-2 px-2">
                                 {navLinks.map((link, i) => (
@@ -132,7 +132,7 @@ const Header = () => {
                                         animate={{ opacity: 1, x: 0 }}
                                         transition={{ delay: i * 0.04 }}
                                         href={link.href}
-                                        className="px-4 py-3 text-xs font-bold text-slate-600 hover:text-brand-900 hover:bg-brand-50/50 rounded-xl uppercase tracking-widest transition-colors text-left flex items-center justify-between group"
+                                        className="px-4 py-3 text-xs font-bold text-slate-600 hover:text-brand-600 hover:bg-brand-500/5 rounded-xl uppercase tracking-widest transition-colors text-left flex items-center justify-between group"
                                         onClick={(e) => {
                                             e.preventDefault();
                                             window.lenis?.scrollTo(link.href);
@@ -148,7 +148,7 @@ const Header = () => {
                                 <motion.div className="px-2 pt-2 pb-1 mt-1 border-t border-slate-100">
                                     <motion.a
                                         href="#contact"
-                                        className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-brand-900 text-white text-[11px] font-black uppercase tracking-[0.15em] shadow-md shadow-brand-900/20"
+                                        className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-brand-600 text-white text-[11px] font-black uppercase tracking-[0.15em] shadow-md shadow-brand-600/20"
                                         onClick={() => setIsOpen(false)}
                                     >
                                         Hire Me <FiArrowUpRight size={14} />

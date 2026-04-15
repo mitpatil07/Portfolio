@@ -50,7 +50,7 @@ const Experience = () => {
                         transition={{ duration: 1.2, ease: "easeInOut" }}
                         style={{ originY: 0 }}
                         viewport={{ once: false }}
-                        className="absolute left-3 top-2 bottom-2 w-px bg-gradient-to-b from-brand-600 via-brand-300 to-transparent"
+                        className="absolute left-3 top-2 bottom-2 w-px bg-gradient-to-b from-brand-600 via-brand-300/40 to-transparent opacity-60"
                     />
 
                     <div className="space-y-8 pl-10">
@@ -68,22 +68,22 @@ const Experience = () => {
                                     <motion.div
                                         animate={{ scale: [1, 1.5, 1], opacity: [0.6, 0, 0.6] }}
                                         transition={{ duration: 2.5, repeat: Infinity, delay: index * 0.6 }}
-                                        className="absolute w-3.5 h-3.5 rounded-full bg-brand-600/30"
+                                        className="absolute w-3.5 h-3.5 rounded-full bg-brand-500/40"
                                     />
-                                    <div className="w-3 h-3 bg-white border-2 border-brand-600 rounded-full shadow-sm relative z-10" />
+                                    <div className="w-3 h-3 bg-brand-600 border-2 border-slate-100 rounded-full shadow-lg relative z-10" />
                                 </div>
 
                                 <motion.div
                                     whileHover={{ y: -2 }}
-                                    className="premium-glass rounded-2xl p-5 sm:p-6 border border-brand-300/25 group"
+                                    className="premium-glass rounded-2xl p-5 sm:p-6 border border-slate-200/50 group shadow-2xl"
                                 >
                                     <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
                                         <div className="flex items-start gap-3">
-                                            <div className="w-8 h-8 rounded-lg bg-brand-50 border border-brand-300/40 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                                <HiBriefcase className="text-brand-600 text-sm" />
+                                            <div className="w-8 h-8 rounded-lg bg-brand-600 border border-brand-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                                <HiBriefcase className="text-white text-sm" />
                                             </div>
                                             <div>
-                                                <h3 className="text-base sm:text-lg font-black text-slate-800 group-hover:text-brand-900 transition-colors leading-snug">
+                                                <h3 className="text-base sm:text-lg font-black text-slate-800 group-hover:text-brand-600 transition-colors leading-snug">
                                                     {exp.role}
                                                 </h3>
                                                 <p className="text-sm font-bold text-brand-600 mt-0.5">{exp.company}</p>
@@ -99,9 +99,9 @@ const Experience = () => {
                                                 whileInView={{ opacity: 1, x: 0 }}
                                                 transition={{ duration: 0.4, delay: 0.1 + i * 0.06 }}
                                                 viewport={{ once: true }}
-                                                className="flex items-start gap-2.5 text-slate-500 text-xs sm:text-sm leading-relaxed font-medium"
+                                                className="flex items-start gap-2.5 text-slate-600 text-xs sm:text-sm leading-relaxed font-medium"
                                             >
-                                                <div className="mt-2 w-1.5 h-1.5 rounded-full bg-brand-300 flex-shrink-0" />
+                                                <div className="mt-2 w-1.5 h-1.5 rounded-full bg-brand-600 flex-shrink-0" />
                                                 <span className="text-justify">{detail}</span>
                                             </motion.li>
                                         ))}

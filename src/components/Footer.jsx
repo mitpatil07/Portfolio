@@ -9,25 +9,25 @@ const Footer = () => {
 
                 {/* Social Links */}
                 <div className="flex justify-center gap-3 mb-6">
-                    <a href="https://github.com/mitpatil07" target="_blank" rel="noreferrer" className="w-9 h-9 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 hover:text-brand-900 hover:bg-brand-50 hover:border-brand-300 transition-all duration-250">
+                    <a href="https://github.com/mitpatil07" target="_blank" rel="noreferrer" className="w-9 h-9 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-500 hover:text-brand-600 hover:bg-brand-500/10 hover:border-brand-500 transition-all duration-250">
                         <FaGithub size={16} />
                     </a>
-                    <a href="https://linkedin.com/in/mitpatil07" target="_blank" rel="noreferrer" className="w-9 h-9 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 hover:text-brand-900 hover:bg-brand-50 hover:border-brand-300 transition-all duration-250">
+                    <a href="https://linkedin.com/in/mitpatil07" target="_blank" rel="noreferrer" className="w-9 h-9 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-500 hover:text-brand-600 hover:bg-brand-500/10 hover:border-brand-500 transition-all duration-250">
                         <FaLinkedin size={16} />
                     </a>
-                    <a href="https://www.instagram.com/mitpatil_07" target="_blank" rel="noreferrer" className="w-9 h-9 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 hover:text-brand-900 hover:bg-brand-50 hover:border-brand-300 transition-all duration-250">
+                    <a href="https://www.instagram.com/mitpatil_07" target="_blank" rel="noreferrer" className="w-9 h-9 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-500 hover:text-brand-600 hover:bg-brand-500/10 hover:border-brand-500 transition-all duration-250">
                         <FaInstagram size={16} />
                     </a>
-                    <a href="mailto:mitesh8767@gmail.com" className="w-9 h-9 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 hover:text-brand-900 hover:bg-brand-50 hover:border-brand-300 transition-all duration-250">
+                    <a href="mailto:mitesh8767@gmail.com" className="w-9 h-9 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-500 hover:text-brand-600 hover:bg-brand-500/10 hover:border-brand-500 transition-all duration-250">
                         <FaEnvelope size={16} />
                     </a>
                 </div>
 
                 <div className="flex flex-col items-center gap-1">
-                    <p className="text-[10px] font-bold tracking-widest uppercase text-slate-400">
+                    <p className="text-[10px] font-bold tracking-widest uppercase text-slate-500">
                         Designed &amp; Built By
                     </p>
-                    <p className="text-xs font-bold text-slate-500">
+                    <p className="text-xs font-bold text-slate-600">
                         Mitesh Dipak Patil &copy; {year}
                     </p>
                 </div>

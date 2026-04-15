@@ -32,7 +32,7 @@ const Experience = () => {
                 <motion.div
                     initial={{ opacity: 0, y: 16 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: false, amount: 0.1 }}
+                    viewport={{ once: true, amount: 0.1 }}
                     className="mb-10 md:mb-14 text-left pl-10 sm:pl-0 sm:text-center"
                 >
                     <span className="section-pill">Career</span>
@@ -49,7 +49,7 @@ const Experience = () => {
                         whileInView={{ scaleY: 1 }}
                         transition={{ duration: 1.2, ease: "easeInOut" }}
                         style={{ originY: 0 }}
-                        viewport={{ once: false }}
+                        viewport={{ once: true }}
                         className="absolute left-3 top-2 bottom-2 w-px bg-gradient-to-b from-brand-600 via-brand-300/40 to-transparent opacity-60"
                     />
 
@@ -60,7 +60,7 @@ const Experience = () => {
                                 initial={{ opacity: 0, x: -20 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 0.55, delay: index * 0.12 }}
-                                viewport={{ once: false, amount: 0.1 }}
+                                viewport={{ once: true, amount: 0.1 }}
                                 className="relative"
                             >
                                 {/* Pulse dot */}

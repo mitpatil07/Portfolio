@@ -23,7 +23,7 @@ const ParticleBackground = () => {
 
         // Adjust particle density based on screen size (prevent mobile lag)
         const isMobile = window.innerWidth < 768;
-        const particleCount = isMobile ? 30 : 65;
+        const particleCount = isMobile ? 18 : 45;
 
         for (let i = 0; i < particleCount; i++) {
             particles.push({
@@ -98,7 +98,7 @@ const ParticleBackground = () => {
         <canvas
             ref={canvasRef}
             className="fixed inset-0 z-0 pointer-events-none"
-            style={{ opacity: 0.8 }}
+            style={{ opacity: 0.8, willChange: 'transform' }}
         />
     );
 };

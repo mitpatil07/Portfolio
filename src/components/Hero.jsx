@@ -1,13 +1,16 @@
 import React from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { HiSparkles, HiArrowRight } from 'react-icons/hi';
 import { FiArrowUpRight } from 'react-icons/fi';
 
 const Hero = () => {
     const { scrollY } = useScroll();
-    // Parallax scrolling effects
-    const yParallax = useTransform(scrollY, [0, 600], [0, 200]);
-    const opacityParallax = useTransform(scrollY, [0, 400], [1, 0]);
+    // Parallax scrolling effects - smoothed with useSpring
+    const yParallaxRaw = useTransform(scrollY, [0, 600], [0, 200]);
+    const opacityParallaxRaw = useTransform(scrollY, [0, 400], [1, 0]);
+
+    const yParallax = useSpring(yParallaxRaw, { stiffness: 100, damping: 30, restDelta: 0.001 });
+    const opacityParallax = useSpring(opacityParallaxRaw, { stiffness: 100, damping: 30, restDelta: 0.001 });
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -49,7 +52,11 @@ const Hero = () => {
                     className="flex flex-col items-center text-center"
                 >
                     {/* Eyebrow label */}
-                    <motion.div variants={itemVariants} className="mb-5">
+                    <motion.div
+                        variants={itemVariants}
+                        viewport={{ once: true }}
+                        className="mb-5"
+                    >
                         <motion.span
                             whileHover={{ scale: 1.05 }}
                             className="inline-flex items-center gap-1.5 section-pill cursor-default"

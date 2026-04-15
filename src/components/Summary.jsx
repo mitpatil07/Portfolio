@@ -34,7 +34,7 @@ const Summary = () => {
                 <motion.div
                     initial={{ opacity: 0, y: 16 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: false, amount: 0.1 }}
+                    viewport={{ once: true, amount: 0.1 }}
                     className="mb-10 md:mb-14 text-center"
                 >
                     <span className="section-pill">About Me</span>
@@ -49,7 +49,7 @@ const Summary = () => {
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.7 }}
-                        viewport={{ once: false }}
+                        viewport={{ once: true }}
                         className="lg:col-span-7"
                     >
                         <div className="premium-glass rounded-3xl p-6 sm:p-10 border border-slate-200/50 shadow-2xl relative overflow-hidden">
@@ -78,7 +78,7 @@ const Summary = () => {
                                 initial={{ opacity: 0, x: 20 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                                viewport={{ once: false }}
+                                viewport={{ once: true }}
                                 whileHover={{ scale: 1.02, x: 5 }}
                                 className="premium-glass p-5 rounded-2xl border border-brand-500/10 flex items-center gap-4 group transition-all"
                             >

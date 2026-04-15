@@ -65,7 +65,7 @@ const ProjectCard = ({ project, index }) => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
             className="premium-glass rounded-3xl overflow-hidden border border-slate-200/50 flex flex-col h-full group transition-all duration-500"
         >
             {/* Visual Header */}
@@ -163,7 +163,7 @@ const Projects = () => {
                 <motion.div
                     initial={{ opacity: 0, y: 16 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                     className="mb-12 md:mb-20 text-center"
                 >
                     <span className="section-pill mb-4">Portfolio</span>

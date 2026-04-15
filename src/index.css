@@ -29,7 +29,7 @@
   --accent-light: #7895FA;
   --accent-subtle: #F1F5F9;
   --glass-opacity: 0.75;
-  --glass-blur: 10px;
+  --glass-blur: 6px;
 }
 
 @layer base {

@@ -23,7 +23,7 @@ const Hero = () => {
     };
 
     return (
-        <section id="home" className="w-full relative pt-32 sm:pt-40 pb-16 sm:pb-20 overflow-hidden">
+        <section id="home" className="w-full min-h-screen relative flex items-center justify-center overflow-hidden">
 
 
             {/* Ambient accent blobs */}

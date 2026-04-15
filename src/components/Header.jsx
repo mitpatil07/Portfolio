@@ -39,7 +39,7 @@ const Header = () => {
     };
 
     return (
-        <header className="fixed top-0 left-0 right-0 z-50 flex justify-center w-full px-4 pt-4 sm:pt-6 pointer-events-none">
+        <header className="fixed top-0 left-0 right-0 z-50 flex justify-center w-full px-4 pt-3 sm:pt-4 pointer-events-none">
             <motion.div
                 initial={{ y: -100, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -57,7 +57,7 @@ const Header = () => {
                         whileTap={{ scale: 0.95 }}
                         className="text-xl sm:text-2xl font-black text-slate-800 px-2 tracking-tighter whitespace-nowrap"
                     >
-                        Mitesh<span className="text-brand-900 text-3xl leading-none">.</span>
+                        Mitesh
                     </motion.a>
 
                     {/* Desktop Nav */}

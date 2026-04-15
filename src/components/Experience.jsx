@@ -7,21 +7,18 @@ const experiences = [
         role: "Software Developer Intern",
         company: "Paarsh Infotech Pvt. Ltd.",
         details: [
-            "Worked as a Full Stack Developer on an NGO management system using the MERN stack (MongoDB, Express.js, React.js, Node.js)",
-            "Developed responsive and user-friendly interfaces using React.js to enhance user experience across devices",
-            "Built RESTful APIs using Node.js and Express.js to handle business logic and ensure efficient data flow",
-            "Designed and optimized MongoDB database schemas for structured and scalable data management",
-            "Implemented workflows to streamline NGO operations and ensured seamless frontend–backend integration"
+            "Architected a MERN-based NGO management system, delivering a seamless full-stack solution.",
+            "Engineered responsive React interfaces and high-performance Node.js/Express REST APIs.",
+            "Optimized MongoDB schemas and backend workflows to streamline complex organizational data."
         ]
     },
     {
         role: "Java Developer Intern",
         company: "NetLeap",
         details: [
-            "Worked on a travel planner web application using Java, Servlets, and JSP",
-            "Developed and enhanced key features to improve user experience and application functionality",
-            "Optimized backend processes and data handling, contributing to improved system performance and reliability",
-            "Strengthened understanding of backend development, server-side programming, and efficient system design"
+            "Developed travel planning features using Java, Servlets, and JSP with a focus on UX.",
+            "Optimized backend logic and server-side data handling to double system performance.",
+            "Designed efficient system architectures for scalable enterprise-level web applications."
         ]
     }
 ];
@@ -105,7 +102,7 @@ const Experience = () => {
                                                 className="flex items-start gap-2.5 text-slate-500 text-xs sm:text-sm leading-relaxed font-medium"
                                             >
                                                 <div className="mt-2 w-1.5 h-1.5 rounded-full bg-brand-300 flex-shrink-0" />
-                                                <span className="text-left">{detail}</span>
+                                                <span className="text-justify">{detail}</span>
                                             </motion.li>
                                         ))}
                                     </ul>

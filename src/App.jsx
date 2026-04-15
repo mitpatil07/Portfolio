@@ -18,7 +18,7 @@ function App() {
       <ParticleBackground />
 
       <Header />
-      <main className="relative z-10 flex flex-col gap-0 md:gap-8 lg:gap-16">
+      <main className="relative z-10 flex flex-col gap-6 md:gap-10 lg:gap-16">
         <Hero />
         <Summary />
         <Skills />

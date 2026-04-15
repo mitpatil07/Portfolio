@@ -30,8 +30,8 @@ const Contact = () => {
         const data = new FormData(form);
 
         try {
-            // NOTE: Replace 'your_formspree_id' with your real Formspree ID
-            const response = await fetch("https://formspree.io/f/mitesh8767@gmail.com", {
+            // Use the direct email endpoint to avoid 404s if you don't have a Form ID yet.
+            const response = await fetch("https://formspree.io/mitesh8767@gmail.com", {
                 method: "POST",
                 body: data,
                 headers: {
@@ -222,8 +222,8 @@ const Contact = () => {
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
                                 className={`mt-2 flex items-center justify-center gap-2 w-full py-3 rounded-xl font-bold text-sm text-white transition-all shadow-md ${status === 'sending'
-                                        ? 'bg-slate-400 cursor-not-allowed opacity-70'
-                                        : 'bg-gradient-to-r from-purple-500 to-brand-900 hover:opacity-90 shadow-brand-900/15'
+                                    ? 'bg-slate-400 cursor-not-allowed opacity-70'
+                                    : 'bg-gradient-to-r from-purple-500 to-brand-900 hover:opacity-90 shadow-brand-900/15'
                                     }`}
                             >
                                 {status === 'sending' ? (

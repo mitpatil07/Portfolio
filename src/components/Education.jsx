@@ -72,7 +72,7 @@ const Education = () => {
                             {edu.details && (
                                 <div className="mt-4 pt-3 border-t border-brand-300/30">
                                     <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1.5">Focus Areas</p>
-                                    <p className="text-slate-500 text-xs sm:text-sm leading-relaxed font-medium">
+                                    <p className="text-slate-500 text-xs sm:text-sm leading-relaxed font-medium text-justify">
                                         {edu.details}
                                     </p>
                                 </div>

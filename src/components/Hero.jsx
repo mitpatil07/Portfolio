@@ -94,10 +94,20 @@ const Hero = () => {
                             Explore Projects <FiArrowUpRight size={15} />
                         </motion.a>
                         <motion.a
+                            href="/resume.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            whileHover={{ scale: 1.02, y: -2 }}
+                            whileTap={{ scale: 0.98 }}
+                            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3 bg-white text-slate-800 text-sm font-bold rounded-xl shadow-sm border border-slate-100 hover:border-brand-500 hover:bg-brand-50 transition-all font-sans"
+                        >
+                            Resume <FiArrowUpRight size={15} className="text-brand-600" />
+                        </motion.a>
+                        <motion.a
                             href="#contact"
                             whileHover={{ scale: 1.02, y: -2 }}
                             whileTap={{ scale: 0.98 }}
-                            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3 bg-white text-brand-600 text-sm font-bold rounded-xl shadow-sm border border-slate-100 hover:border-brand-500 hover:bg-brand-50 lg:hover:bg-brand-500/10 transition-all font-sans"
+                            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3 bg-slate-50 text-brand-600 text-sm font-bold rounded-xl shadow-sm border border-slate-200/50 hover:border-brand-500 hover:bg-white transition-all font-sans"
                         >
                             Let's Talk <HiArrowRight size={14} />
                         </motion.a>

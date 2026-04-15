@@ -4,8 +4,6 @@ import { HiMenu, HiX } from 'react-icons/hi';
 import { FiArrowUpRight } from 'react-icons/fi';
 
 const navLinks = [
-    { title: 'Home', href: '#home' },
-    { title: 'Summary', href: '#summary' },
     { title: 'Skills', href: '#skills' },
     { title: 'Projects', href: '#projects' },
     { title: 'Experience', href: '#experience' },
@@ -56,6 +54,10 @@ const Header = () => {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         className="text-xl sm:text-2xl font-black text-slate-800 px-2 tracking-tighter whitespace-nowrap"
+                        onClick={(e) => {
+                            e.preventDefault();
+                            window.lenis?.scrollTo('#home');
+                        }}
                     >
                         Mitesh
                     </motion.a>
@@ -76,9 +78,13 @@ const Header = () => {
                                 href={link.href}
                                 className="px-3 xl:px-4 py-2 text-[11px] lg:text-xs font-black text-slate-500 hover:text-brand-600 rounded-full transition-colors uppercase tracking-[0.15em]"
                                 onClick={(e) => {
-                                    e.preventDefault();
-                                    window.lenis?.scrollTo(link.href);
+                                    if (!link.isExternal) {
+                                        e.preventDefault();
+                                        window.lenis?.scrollTo(link.href);
+                                    }
                                 }}
+                                target={link.isExternal ? "_blank" : undefined}
+                                rel={link.isExternal ? "noopener noreferrer" : undefined}
                             >
                                 {link.title}
                             </motion.a>
@@ -134,10 +140,14 @@ const Header = () => {
                                         href={link.href}
                                         className="px-4 py-3 text-xs font-bold text-slate-600 hover:text-brand-600 hover:bg-brand-500/5 rounded-xl uppercase tracking-widest transition-colors text-left flex items-center justify-between group"
                                         onClick={(e) => {
-                                            e.preventDefault();
-                                            window.lenis?.scrollTo(link.href);
-                                            setIsOpen(false);
+                                            if (!link.isExternal) {
+                                                e.preventDefault();
+                                                window.lenis?.scrollTo(link.href);
+                                                setIsOpen(false);
+                                            }
                                         }}
+                                        target={link.isExternal ? "_blank" : undefined}
+                                        rel={link.isExternal ? "noopener noreferrer" : undefined}
                                     >
                                         {link.title}
                                         <span className="text-brand-300 opacity-0 group-hover:opacity-100 transition-opacity -translate-x-2 group-hover:translate-x-0 transform duration-300">

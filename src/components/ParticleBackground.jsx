@@ -22,16 +22,17 @@ const ParticleBackground = () => {
         const colors = ['#5D5FEF', '#E879F9', '#FBBF24', '#A78BFA', '#2DD4BF'];
 
         // Adjust particle density based on screen size (prevent mobile lag)
-        const particleCount = window.innerWidth < 768 ? 80 : 200;
+        const isMobile = window.innerWidth < 768;
+        const particleCount = isMobile ? 40 : 100; // Reduced from 80 : 200
 
         for (let i = 0; i < particleCount; i++) {
             particles.push({
                 x: Math.random() * canvas.width,
                 y: Math.random() * canvas.height,
-                radius: Math.random() * 2.5 + 0.5,
+                radius: Math.random() * 2.0 + 0.5,
                 color: colors[Math.floor(Math.random() * colors.length)],
-                vx: (Math.random() - 0.5) * 0.6,
-                vy: (Math.random() - 0.5) * 0.6,
+                vx: (Math.random() - 0.5) * 0.4,
+                vy: (Math.random() - 0.5) * 0.4,
             });
         }
 

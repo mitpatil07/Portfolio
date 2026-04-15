@@ -128,7 +128,7 @@ const Header = () => {
                             animate={{ height: 'auto', opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
                             transition={{ duration: 0.3 }}
-                            className="md:hidden overflow-hidden w-full premium-glass rounded-2xl mt-3 shadow-xl border border-slate-200/50"
+                            className="md:hidden overflow-hidden w-full bg-white/95 backdrop-blur-2xl rounded-2xl mt-3 shadow-[0_20px_50px_rgba(0,0,0,0.15)] border border-slate-200 relative z-[60]"
                         >
                             <div className="flex flex-col py-2 px-2">
                                 {navLinks.map((link, i) => (

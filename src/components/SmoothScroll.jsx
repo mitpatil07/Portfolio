@@ -4,16 +4,19 @@ import Lenis from 'lenis';
 const SmoothScroll = ({ children }) => {
     useEffect(() => {
         const lenis = new Lenis({
-            duration: 1.0, // Reduced from 1.2
+            duration: 1.2,
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
             direction: 'vertical',
             gestureDirection: 'vertical',
-            smoothHover: true,
             smoothWheel: true,
-            wheelMultiplier: 1.1, // Increased for snappier response
-            touchMultiplier: 1.5, // Balanced for mobile
+            wheelMultiplier: 0.9,
+            touchMultiplier: 1.5,
             infinite: false,
         });
+
+        // Force scroll to top on refresh
+        window.history.scrollRestoration = 'manual';
+        lenis.scrollTo(0, { immediate: true });
 
         function raf(time) {
             lenis.raf(time);

@@ -23,7 +23,7 @@ const ParticleBackground = () => {
 
         // Adjust particle density based on screen size (prevent mobile lag)
         const isMobile = window.innerWidth < 768;
-        const particleCount = isMobile ? 40 : 100; // Reduced from 80 : 200
+        const particleCount = isMobile ? 30 : 65;
 
         for (let i = 0; i < particleCount; i++) {
             particles.push({

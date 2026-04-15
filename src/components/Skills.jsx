@@ -117,9 +117,6 @@ const Skills = () => {
                                 {category.skills.map((skill, i) => (
                                     <motion.span
                                         key={i}
-                                        initial={{ opacity: 0, scale: 0.8 }}
-                                        whileInView={{ opacity: 1, scale: 1 }}
-                                        transition={{ delay: 0.1 + (i * 0.05) }}
                                         whileHover={{ scale: 1.05, backgroundColor: 'rgba(120, 149, 250, 0.2)' }}
                                         className="px-3 py-1.5 bg-brand-50 text-brand-600 rounded-lg border border-brand-200 text-[11px] sm:text-xs font-bold transition-all"
                                     >

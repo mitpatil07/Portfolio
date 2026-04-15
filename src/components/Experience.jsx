@@ -93,17 +93,13 @@ const Experience = () => {
 
                                     <ul className="space-y-2 pl-11">
                                         {exp.details.map((detail, i) => (
-                                            <motion.li
+                                            <li
                                                 key={i}
-                                                initial={{ opacity: 0, x: -8 }}
-                                                whileInView={{ opacity: 1, x: 0 }}
-                                                transition={{ duration: 0.4, delay: 0.1 + i * 0.06 }}
-                                                viewport={{ once: true }}
                                                 className="flex items-start gap-2.5 text-slate-600 text-xs sm:text-sm leading-relaxed font-medium"
                                             >
                                                 <div className="mt-2 w-1.5 h-1.5 rounded-full bg-brand-600 flex-shrink-0" />
                                                 <span className="text-justify">{detail}</span>
-                                            </motion.li>
+                                            </li>
                                         ))}
                                     </ul>
                                 </motion.div>

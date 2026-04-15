@@ -80,12 +80,6 @@ const Skills = () => {
                     <span className="section-pill">Toolkit</span>
                     <h2 className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-slate-800 flex items-center justify-center gap-2">
                         My Technical <span className="text-gradient">Arsenal</span>
-                        <motion.span
-                            animate={{ rotate: [0, 12, -12, 0], scale: [1, 1.2, 1] }}
-                            transition={{ repeat: Infinity, duration: 2.2, repeatDelay: 3 }}
-                        >
-                            <FaBolt className="text-orange-400 text-3xl" />
-                        </motion.span>
                     </h2>
                 </motion.div>
 

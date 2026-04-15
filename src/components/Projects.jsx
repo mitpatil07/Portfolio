@@ -64,7 +64,7 @@ const Projects = () => {
                             transition={{ duration: 0.65, ease: "easeOut", delay: index * 0.08 }}
                             viewport={{ once: false, amount: 0.1 }}
                             whileHover={{ y: -3 }}
-                            className="premium-glass rounded-2xl p-5 sm:p-7 border border-slate-100 flex flex-col md:flex-row gap-5 md:gap-7 cursor-default"
+                            className="premium-glass rounded-2xl p-5 sm:p-7 border border-slate-100 flex flex-col md:flex-row gap-5 md:gap-7 cursor-default group"
                         >
                             {/* Visual Preview Badge */}
                             <div className="flex-shrink-0 w-full md:w-56 h-40 md:h-auto relative rounded-xl overflow-hidden shadow-inner group-hover:shadow-md transition-all duration-500">

@@ -77,7 +77,7 @@ const Header = () => {
                                 className="px-3 xl:px-4 py-2 text-[11px] lg:text-xs font-black text-slate-500 hover:text-brand-900 rounded-full transition-colors uppercase tracking-[0.15em]"
                                 onClick={(e) => {
                                     e.preventDefault();
-                                    document.querySelector(link.href).scrollIntoView({ behavior: 'smooth' });
+                                    window.lenis?.scrollTo(link.href);
                                 }}
                             >
                                 {link.title}
@@ -135,7 +135,7 @@ const Header = () => {
                                         className="px-4 py-3 text-xs font-bold text-slate-600 hover:text-brand-900 hover:bg-brand-50/50 rounded-xl uppercase tracking-widest transition-colors text-left flex items-center justify-between group"
                                         onClick={(e) => {
                                             e.preventDefault();
-                                            document.querySelector(link.href).scrollIntoView({ behavior: 'smooth' });
+                                            window.lenis?.scrollTo(link.href);
                                             setIsOpen(false);
                                         }}
                                     >

@@ -30,51 +30,67 @@ html {
 
 /* Base App Backgrounds */
 .bg-mesh {
-  background-color: var(--color-surface-bg);
+  background-color: #ffffff;
   background-image:
-    radial-gradient(at 0% 0%, rgba(93, 95, 239, 0.12) 0px, transparent 50%),
-    radial-gradient(at 100% 0%, rgba(120, 149, 250, 0.12) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, rgba(196, 181, 253, 0.15) 0px, transparent 50%),
-    radial-gradient(at 0% 100%, rgba(250, 232, 255, 0.3) 0px, transparent 50%);
+    radial-gradient(at 0% 0%, rgba(93, 95, 239, 0.15) 0px, transparent 55%),
+    radial-gradient(at 100% 0%, rgba(120, 149, 250, 0.15) 0px, transparent 55%),
+    radial-gradient(at 100% 100%, rgba(196, 181, 253, 0.18) 0px, transparent 55%),
+    radial-gradient(at 0% 100%, rgba(250, 232, 255, 0.35) 0px, transparent 55%),
+    radial-gradient(at 50% 50%, rgba(238, 242, 255, 0.4) 0px, transparent 60%);
   background-attachment: fixed;
+  background-size: 200% 200%;
 }
 
-/* Premium Glass Cards */
+/* Premium Glass Cards 2.0 */
 .premium-glass {
-  background: rgba(255, 255, 255, 0.65);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.85);
-  box-shadow: 0 4px 24px -4px rgba(93, 95, 239, 0.07), 0 1px 2px rgba(0, 0, 0, 0.03);
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow:
+    0 10px 30px -10px rgba(93, 95, 239, 0.08),
+    0 4px 6px -2px rgba(93, 95, 239, 0.03),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .premium-glass:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 36px -8px rgba(93, 95, 239, 0.13), 0 1px 3px rgba(0, 0, 0, 0.03);
-  border-color: rgba(120, 149, 250, 0.35);
+  transform: translateY(-6px) scale(1.01);
+  background: rgba(255, 255, 255, 0.55);
+  box-shadow:
+    0 20px 40px -12px rgba(93, 95, 239, 0.15),
+    0 0 0 1px rgba(120, 149, 250, 0.25);
+  border-color: rgba(255, 255, 255, 0.85);
 }
 
 .nav-glass {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.5);
-  box-shadow: 0 2px 20px rgba(93, 95, 239, 0.08);
+  box-shadow: 0 8px 32px -8px rgba(93, 95, 239, 0.1);
 }
 
 .text-gradient {
-  background: linear-gradient(to right, var(--color-brand-900), var(--color-brand-600), #9F7AEA, var(--color-brand-900));
-  background-size: 200% auto;
+  background: linear-gradient(135deg, #5D5FEF, #7895FA, #C4B5FD, #5D5FEF);
+  background-size: 300% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: shine 4s linear infinite;
+  animation: shine 6s ease-in-out infinite;
 }
 
 @keyframes shine {
-  to {
-    background-position: 200% center;
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
   }
 }
 
@@ -82,23 +98,24 @@ html {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.35rem 1rem;
+  padding: 0.45rem 1.15rem;
   border-radius: 9999px;
-  background-color: rgba(245, 243, 255, 0.7);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(196, 181, 253, 0.5);
-  color: var(--color-brand-900);
+  background: linear-gradient(135deg, rgba(245, 243, 255, 0.8), rgba(238, 242, 255, 0.6));
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(120, 149, 250, 0.35);
+  color: #5D5FEF;
   font-weight: 800;
-  font-size: 0.65rem;
-  letter-spacing: 0.15em;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  margin-bottom: 0.75rem;
-  box-shadow: 0 4px 12px rgba(120, 149, 250, 0.1);
-  transition: all 0.3s ease;
+  margin-bottom: 1rem;
+  box-shadow: 0 8px 20px -6px rgba(120, 149, 250, 0.15);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .section-pill:hover {
-  background-color: var(--color-brand-50);
-  transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(120, 149, 250, 0.15);
+  transform: translateY(-2px) scale(1.05);
+  background: var(--color-brand-50);
+  box-shadow: 0 12px 24px -8px rgba(120, 149, 250, 0.2);
+  border-color: rgba(120, 149, 250, 0.6);
 }

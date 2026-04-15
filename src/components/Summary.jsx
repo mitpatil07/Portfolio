@@ -56,14 +56,14 @@ const Summary = () => {
                             {/* Subtle corner accent */}
                             <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-brand-100/40 to-transparent -mr-12 -mt-12 rounded-full" />
 
-                            <div className="text-slate-600 text-[15px] sm:text-base leading-relaxed font-medium text-justify space-y-5 relative z-10">
-                                <p className="text-slate-800 text-lg sm:text-xl font-bold leading-snug">
+                            <div className="text-slate-600 text-base sm:text-lg leading-relaxed font-medium text-left space-y-6 relative z-10">
+                                <p className="text-slate-900 text-2xl sm:text-3xl font-black leading-tight tracking-tight">
                                     I bridge the gap between <span className="text-brand-600">complex logic</span> and <span className="text-purple-600">seamless user experiences</span>.
                                 </p>
-                                <p>
+                                <p className="opacity-90">
                                     As a Full Stack Developer, I specialize in building modern web architectures that are both technically rigorous and aesthetically pleasing. From architecting robust RESTful APIs to crafting responsive glassmorphic interfaces, I am dedicated to delivering high-impact software.
                                 </p>
-                                <p>
+                                <p className="opacity-90">
                                     My approach combines technical precision with an entrepreneurial mindset, ensuring that every line of code contributes to a meaningful, scalable solution.
                                 </p>
                             </div>

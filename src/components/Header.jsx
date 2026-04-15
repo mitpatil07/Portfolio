@@ -17,10 +17,14 @@ const Header = () => {
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 20);
+            // Auto-close menu on scroll for better UX
+            if (isOpen && window.scrollY > 50) {
+                setIsOpen(false);
+            }
         };
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    }, [isOpen]);
 
     // Staggered animation for desktop nav
     const navVariants = {
@@ -43,7 +47,7 @@ const Header = () => {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                 className={`w-full max-w-4xl pointer-events-auto transition-all duration-400 ${isScrolled
-                    ? 'nav-glass rounded-full px-5 py-3.5 shadow-2xl shadow-brand-900/10 transform scale-[0.98] border-brand-300/40'
+                    ? `nav-glass px-5 py-3.5 shadow-2xl shadow-brand-900/10 transform scale-[0.98] border-brand-300/40 ${isOpen ? 'rounded-2xl' : 'rounded-full'}`
                     : 'bg-transparent px-3 py-4'
                     }`}
             >

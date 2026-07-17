@@ -14,7 +14,9 @@ const Contact = () => {
         const data = new FormData(form);
 
         try {
-            const response = await fetch("https://formspree.io/mitesh8767@gmail.com", {
+            // NOTE: Create a free form at Formspree (https://formspree.io) and replace the ID below.
+            // For example: "https://formspree.io/f/mvoywzgo"
+            const response = await fetch("https://formspree.io/f/mdaqegjr", {
                 method: "POST",
                 body: data,
                 headers: {

@@ -66,7 +66,7 @@ const Summary = () => {
                             {/* Background decoration */}
                             <div className="absolute top-0 right-0 w-32 h-32 bg-radial-gradient from-red-600/10 to-transparent blur-2xl -mr-16 -mt-16 rounded-full group-hover/narrative:from-red-600/20 transition-all duration-500" />
 
-                            <div className="text-zinc-300 text-base sm:text-lg leading-relaxed space-y-6 relative z-10 text-justify">
+                            <div className="text-zinc-300 text-base sm:text-lg leading-relaxed space-y-6 relative z-10 text-left">
                                 <p className="text-white text-2xl sm:text-3xl font-black leading-tight tracking-tight text-left">
                                     I bridge the gap between <span className="text-[#E50914] drop-shadow-[0_0_8px_rgba(229,9,20,0.2)] font-semibold">complex logic</span> and <span className="text-white underline decoration-[#E50914]/50 decoration-2 underline-offset-4">seamless user experiences</span>.
                                 </p>
@@ -105,23 +105,23 @@ const Summary = () => {
                               transition={{ duration: 0.6, delay: i * 0.15 }}
                               viewport={{ once: true }}
                               whileHover={{ scale: 1.015, x: 6 }}
-                              className="bg-[#181818]/60 backdrop-blur-md border border-[#2F2F2F] hover:border-red-900/40 p-6 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center gap-5 group transition-all duration-300 shadow-lg hover:shadow-[0_8px_30px_rgba(229,9,20,0.06)] cursor-pointer flex-1"
+                              className="bg-[#181818]/60 backdrop-blur-md border border-[#2F2F2F] hover:border-red-900/40 p-4 sm:p-5 rounded-xl flex items-center gap-4 group transition-all duration-300 shadow-lg hover:shadow-[0_8px_30px_rgba(229,9,20,0.06)] cursor-pointer flex-1"
                           >
                               {/* Glowing Icon Container */}
-                              <div className={`w-14 h-14 rounded-2xl bg-zinc-900/90 border border-zinc-700/60 flex items-center justify-center flex-shrink-0 group-hover:bg-[#E50914] text-red-500 group-hover:text-white transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(229,9,20,0.4)] group-hover:border-[#E50914]`}>
-                                  <highlight.icon size={26} />
+                              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg sm:rounded-2xl bg-zinc-900/90 border border-zinc-700/60 flex items-center justify-center flex-shrink-0 group-hover:bg-[#E50914] text-red-500 group-hover:text-white transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(229,9,20,0.4)] group-hover:border-[#E50914]">
+                                  <highlight.icon size={20} className="sm:size-6" />
                               </div>
 
-                              <div className="text-left space-y-1 flex-1">
+                              <div className="text-left space-y-0.5 sm:space-y-1 flex-1">
                                   <div className="flex items-center justify-between flex-wrap gap-2">
-                                      <h4 className="text-base font-black text-white leading-tight uppercase font-sans tracking-wide">
+                                      <h4 className="text-sm sm:text-base font-black text-white leading-tight uppercase font-sans tracking-wide">
                                           {highlight.label}
                                       </h4>
-                                      <span className="text-[9px] uppercase tracking-widest font-extrabold text-zinc-500 bg-zinc-900 border border-zinc-800 px-2 py-0.5 rounded-full group-hover:border-red-900/40 group-hover:text-red-400 transition-colors">
+                                      <span className="text-[8px] sm:text-[9px] uppercase tracking-widest font-extrabold text-zinc-500 bg-zinc-900 border border-zinc-800 px-2 py-0.5 rounded-full group-hover:border-red-900/40 group-hover:text-red-400 transition-colors">
                                           {highlight.badge}
                                       </span>
                                   </div>
-                                  <p className="text-xs text-zinc-400 font-semibold leading-relaxed group-hover:text-zinc-300 transition-colors text-justify">
+                                  <p className="text-[11px] sm:text-xs text-zinc-400 font-semibold leading-relaxed group-hover:text-zinc-300 transition-colors text-left">
                                       {highlight.text}
                                   </p>
                               </div>

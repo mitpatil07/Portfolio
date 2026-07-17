@@ -52,7 +52,7 @@ const Hero = ({ setActiveModalItem, playTaDum, audioEnabled, setAudioEnabled }) 
                     {/* Netflix original label */}
                     <div className="flex items-center gap-2">
                         <span className="font-bebas text-2xl tracking-widest text-[#E50914] font-black uppercase">M</span>
-                        <span className="text-[10px] font-bold text-zinc-300 tracking-[0.25em] uppercase">Original Series</span>
+                        <span className="text-[10px] font-bold text-zinc-300 tracking-[0.25em] uppercase">Software Developer</span>
                     </div>
 
                     {/* Bold Cinematic Title */}
@@ -79,7 +79,7 @@ const Hero = ({ setActiveModalItem, playTaDum, audioEnabled, setAudioEnabled }) 
                     </div>
 
                     {/* Synopsis */}
-                    <p className="text-sm sm:text-base md:text-lg text-zinc-300 leading-relaxed drop-shadow font-medium max-w-xl text-justify">
+                    <p className="text-sm sm:text-base md:text-lg text-zinc-300 leading-relaxed drop-shadow font-medium max-w-xl text-left">
                         An engineer by degree and creator by passion. Follow Mitesh as he architects robust REST APIs, design sleek responsive frontends, and integrate computer vision algorithms into full-stack systems. Ready to deploy globally.
                     </p>
 

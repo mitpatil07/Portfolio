@@ -171,13 +171,12 @@ const NetflixModal = ({ item, onClose, allProjects = [], allExperiences = [] }) 
         </button>
 
         {/* Visual Header / Banner */}
-        <div className="relative h-60 sm:h-80 w-full overflow-hidden bg-gradient-to-r from-red-950/20 to-black/50">
+        <div className="relative h-48 sm:h-64 md:h-80 w-full overflow-hidden bg-gradient-to-r from-red-950/20 to-black/50">
           {item.image ? (
             <img
               src={item.image}
               alt={item.title || item.role || item.degree}
-              className={`w-full h-full object-cover ${item.title === "Frontend Development" ? "netflix-illustration-filter" : ""
-                }`}
+              className="w-full h-full object-cover"
             />
           ) : (
             <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient || 'from-red-900/30 to-zinc-900'} flex flex-col items-center justify-center text-center p-6`}>
@@ -192,92 +191,92 @@ const NetflixModal = ({ item, onClose, allProjects = [], allExperiences = [] }) 
           )}
 
           {/* Banner bottom gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#181818] via-transparent to-transparent" />
+          <div className="hidden md:block absolute inset-0 bg-gradient-to-t from-[#181818] via-transparent to-transparent" />
+        </div>
 
-          {/* Banner Floating Title and controls */}
-          <div className="absolute bottom-6 left-6 right-6 z-10 flex flex-col gap-3">
-            <h2 className="text-2xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight">
-              {item.title || item.role || item.degree}
-            </h2>
+        {/* Banner Title and controls - Relative on mobile, absolute overlay on desktop */}
+        <div className="relative md:absolute md:bottom-6 md:left-6 md:right-6 z-10 flex flex-col gap-3 p-6 md:p-0 bg-[#181818] md:bg-transparent">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-white tracking-tight leading-tight">
+            {item.title || item.role || item.degree}
+          </h2>
 
-            {item.company && (
-              <p className="text-lg sm:text-xl font-bold text-red-500">{item.company}</p>
-            )}
-            {item.institution && (
-              <p className="text-lg sm:text-xl font-bold text-red-500">{item.institution}</p>
-            )}
+          {item.company && (
+            <p className="text-base sm:text-lg md:text-xl font-bold text-red-500">{item.company}</p>
+          )}
+          {item.institution && (
+            <p className="text-base sm:text-lg md:text-xl font-bold text-red-500">{item.institution}</p>
+          )}
 
-            {/* Action controls */}
-            <div className="flex flex-wrap items-center gap-3 mt-2">
-              {isProject && item.links && (
-                <>
+          {/* Action controls */}
+          <div className="flex flex-wrap items-center gap-2.5 mt-1 md:mt-2">
+            {isProject && item.links && (
+              <>
+                <a
+                  href={item.links.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-2 px-5 py-2 md:px-6 md:py-2.5 bg-white text-black font-bold text-xs sm:text-sm md:text-base rounded-md hover:bg-white/80 active:scale-95 transition-all shadow-lg"
+                >
+                  <HiPlay size={18} className="fill-black text-black" />
+                  <span>Source Code</span>
+                </a>
+                {item.links.live && (
                   <a
-                    href={item.links.github}
+                    href={item.links.live}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center gap-2 px-6 py-2.5 bg-white text-black font-bold text-sm sm:text-base rounded-md hover:bg-white/80 active:scale-95 transition-all shadow-lg"
+                    className="flex items-center gap-2 px-5 py-2 md:px-6 md:py-2.5 bg-zinc-700/80 text-white font-bold text-xs sm:text-sm md:text-base rounded-md hover:bg-zinc-600 border border-[#4F4F4F] active:scale-95 transition-all"
                   >
-                    <HiPlay size={20} className="fill-black text-black" />
-                    <span>Source Code</span>
+                    <FaExternalLinkAlt size={12} />
+                    <span>Live Demo</span>
                   </a>
-                  {item.links.live && (
-                    <a
-                      href={item.links.live}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="flex items-center gap-2 px-6 py-2.5 bg-zinc-700/80 text-white font-bold text-sm sm:text-base rounded-md hover:bg-zinc-600 border border-[#4F4F4F] active:scale-95 transition-all"
-                    >
-                      <FaExternalLinkAlt size={14} />
-                      <span>Live Demo</span>
-                    </a>
-                  )}
-                </>
-              )}
+                )}
+              </>
+            )}
 
-              {isExperience && (
-                <a
-                  href="#contact"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    onClose();
-                    window.lenis?.scrollTo('#contact');
-                  }}
-                  className="flex items-center gap-2 px-6 py-2.5 bg-red-600 text-white font-bold text-sm sm:text-base rounded-md hover:bg-red-700 active:scale-95 transition-all"
-                >
-                  <HiPlay size={20} />
-                  <span>Inquire / Hire</span>
-                </a>
-              )}
-
-              {isEducation && (
-                <a
-                  href="#contact"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    onClose();
-                    window.lenis?.scrollTo('#contact');
-                  }}
-                  className="flex items-center gap-2 px-6 py-2.5 bg-white text-black font-bold text-sm sm:text-base rounded-md hover:bg-white/80 active:scale-95 transition-all"
-                >
-                  <FaGraduationCap size={16} />
-                  <span>Academic Inquiries</span>
-                </a>
-              )}
-
-              <button className="w-10 h-10 rounded-full border border-zinc-500 hover:border-white hover:bg-white/10 flex items-center justify-center text-white transition-all active:scale-90">
-                <HiPlus size={20} />
-              </button>
-              <button
-                onClick={() => setIsLiked(!isLiked)}
-                className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all active:scale-90 ${isLiked
-                    ? 'border-red-600 bg-red-600/10 text-red-500 hover:border-red-600 hover:bg-red-600/20 shadow-[0_0_12px_rgba(220,38,38,0.3)]'
-                    : 'border-zinc-500 hover:border-white hover:bg-white/10 text-white'
-                  }`}
-                title={isLiked ? "Unlike" : "Like"}
+            {isExperience && (
+              <a
+                href="#contact"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onClose();
+                  window.lenis?.scrollTo('#contact');
+                }}
+                className="flex items-center gap-2 px-5 py-2 md:px-6 md:py-2.5 bg-red-600 text-white font-bold text-xs sm:text-sm md:text-base rounded-md hover:bg-red-700 active:scale-95 transition-all"
               >
-                <HiThumbUp size={18} className={isLiked ? 'fill-red-500 text-red-500' : ''} />
-              </button>
-            </div>
+                <HiPlay size={18} />
+                <span>Inquire / Hire</span>
+              </a>
+            )}
+
+            {isEducation && (
+              <a
+                href="#contact"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onClose();
+                  window.lenis?.scrollTo('#contact');
+                }}
+                className="flex items-center gap-2 px-5 py-2 md:px-6 md:py-2.5 bg-white text-black font-bold text-xs sm:text-sm md:text-base rounded-md hover:bg-white/80 active:scale-95 transition-all"
+              >
+                <FaGraduationCap size={16} />
+                <span>Academic Inquiries</span>
+              </a>
+            )}
+
+            <button className="w-8 h-8 md:w-10 md:h-10 rounded-full border border-zinc-500 hover:border-white hover:bg-white/10 flex items-center justify-center text-white transition-all active:scale-90">
+              <HiPlus size={16} />
+            </button>
+            <button
+              onClick={() => setIsLiked(!isLiked)}
+              className={`w-8 h-8 md:w-10 md:h-10 rounded-full border flex items-center justify-center transition-all active:scale-90 ${isLiked
+                  ? 'border-red-600 bg-red-600/10 text-red-500 hover:border-red-600 hover:bg-red-600/20 shadow-[0_0_12px_rgba(220,38,38,0.3)]'
+                  : 'border-zinc-500 hover:border-white hover:bg-white/10 text-white'
+                }`}
+              title={isLiked ? "Unlike" : "Like"}
+            >
+              <HiThumbUp size={14} className={isLiked ? 'fill-red-500 text-red-500' : ''} />
+            </button>
           </div>
         </div>
 
@@ -311,10 +310,13 @@ const NetflixModal = ({ item, onClose, allProjects = [], allExperiences = [] }) 
             </p>
 
             {item.grade && (
-              <div className="flex items-center gap-2 text-zinc-300 bg-[#2A2A2A] px-4 py-2.5 rounded-lg border border-[#3F3F3F]">
-                <FaAward className="text-red-500" />
-                <span className="font-bold">Performance Metric:</span>
-                <span className="text-red-400 font-semibold">{item.grade}</span>
+              <div className="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-2.5 text-zinc-300 bg-[#2A2A2A] px-4 py-3 rounded-lg border border-[#3F3F3F]">
+                <div className="flex items-center gap-2 flex-shrink-0">
+                  <FaAward className="text-red-500 text-base flex-shrink-0 animate-pulse" />
+                  <span className="font-extrabold text-[10px] sm:text-xs uppercase tracking-wider text-zinc-400">Performance Metric</span>
+                </div>
+                <span className="hidden sm:inline text-zinc-600 font-bold">•</span>
+                <span className="text-red-500 font-black text-sm sm:text-base leading-tight">{item.grade}</span>
               </div>
             )}
 

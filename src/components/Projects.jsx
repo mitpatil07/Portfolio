@@ -1,188 +1,263 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt, FaRobot, FaShoppingBag, FaQuestionCircle, FaBookOpen, FaUsers, FaChevronDown, FaChevronUp } from 'react-icons/fa';
-import { FiArrowUpRight } from 'react-icons/fi';
+import React, { useRef } from 'react';
+import { motion } from 'framer-motion';
+import { FaGithub, FaExternalLinkAlt, FaRobot, FaShoppingBag, FaQuestionCircle, FaBookOpen, FaChevronLeft, FaChevronRight, FaTachometerAlt, FaUsers, FaMicrophone } from 'react-icons/fa';
+import { HiPlus, HiThumbUp, HiChevronDown } from 'react-icons/hi';
 
 // Project Images
-import ngoImg from '../assets/ngo.png';
-import durgsetuImg from '../assets/durgsetu.png';
+import ngoImg from '../assets/ngo_poster.png'; // Generated vertical poster
+import durgsetuImg from '../assets/durgsetu_poster.png'; // Generated vertical poster
 import whatyouwearImg from '../assets/whatyouwear.png';
 import quizoraImg from '../assets/quizora.png';
+import shopifyCroImg from '../assets/shopify_cro.png';
+import productCatalogImg from '../assets/product_catalog.png';
+import auracrmImg from '../assets/auracrm.png';
 
 const projects = [
-    {
-        title: "NGO Management System",
-        techStack: ["MongoDB", "Express", "React", "Node.js", "Redux"],
-        description: "A comprehensive full-stack platform engineered to streamline NGO operations, including resource management, user coordination, and complex data handling. Engineered responsive UI components using React.js and implemented RESTful APIs with Node.js and Express.js to handle business logic and data flow.",
-        links: { github: "https://github.com/Kalpeshk22/NGO-FOOD-Project" },
-        icon: FaUsers,
-        image: ngoImg,
-        gradient: "from-rose-500/10 to-red-600/5"
-    },
+
     {
         title: "DurgSetu AI",
-        techStack: ["React", "Django", "OpenCV", "MySQL", "Tailwind"],
-        description: "An AI-powered change detection platform designed to monitor historical structures. Developed full-stack using Django and React to render real-time computer vision analysis highlighting infrastructural degradation and structural shifts.",
+        techStack: ["React", "Django","ML","AI", "OpenCV", "MySQL", "Tailwind"],
+        description: "An AI change-detection platform monitoring historical structures. Developed using Django and OpenCV to run computer vision analysis of infrastructural degradation.",
         links: { github: "https://github.com/mitpatil07/DurgSetu-AI", live: "https://durgsetuai.vercel.app/" },
         icon: FaRobot,
         image: durgsetuImg,
-        gradient: "from-blue-500/10 to-indigo-600/5"
+        year: "2025",
+        gradient: "from-blue-950/40 to-zinc-900"
     },
     {
-        title: "Whatyouwear",
-        techStack: ["React", "Django", "PostgreSQL", "Tailwind", "Stripe"],
-        description: "A comprehensive full-stack e-commerce platform offering responsive UI, secure user authentication, modular product catalog management, and seamless end-to-end checkout integration with localized payment gateways.",
+        title: "VoicePortrait",
+        techStack: ["React", "Node.js", "Express", "Python", "Wav2Lip", "FFmpeg", "OpenCV"],
+        description: "A professional-grade, open-source AI platform designed to transform static 2D illustrations and anime characters into cinematic, talking narrators using Wav2Lip.",
+        links: { github: "https://github.com/mitpatil07/VoicePortrait" },
+        icon: FaRobot,
+        year: "2025",
+        gradient: "from-pink-950/40 to-zinc-900"
+    },
+    {
+        title: "Shopify CRO Opportunity Engine",
+        techStack: ["React", "TypeScript", "Node.js", "Express", "Cheerio", "Tailwind", "Llama 3.1"],
+        description: "An AI-powered CRO auditing and experimentation dashboard for Shopify storefronts. Extracts live catalog, homepage signals, and PDP metadata to rank opportunities using ICE scoring.",
+        links: { github: "https://github.com/mitpatil07/Shopify-CRO" },
+        icon: FaTachometerAlt,
+        image: shopifyCroImg,
+        year: "2025",
+        gradient: "from-green-950/40 to-zinc-900"
+    },
+    {
+        title: "NGO Management System",
+        techStack: ["MongoDB", "Express", "React", "Node.js", "Redux"],
+        description: "A comprehensive MERN-based platform engineered to streamline NGO operations, resource management, user coordination, and RESTful data workflows.",
+        links: { github: "https://github.com/Kalpeshk22/NGO-FOOD-Project" },
+        icon: FaShoppingBag,
+        image: ngoImg,
+        year: "2024",
+        gradient: "from-rose-950/40 to-zinc-900"
+    },
+    {
+        title: "Whatyouwear Store",
+        techStack: ["React", "Django", "DRF", "PostgreSQL", "Razorpay", "Tailwind", "OAuth"],
+        description: "A full-featured e-commerce platform with a React + Vite frontend and Django REST Framework backend, featuring Razorpay integration, Google OAuth login, and dynamic session cart flows.",
         links: { github: "https://github.com/mitpatil07/E-commerce", live: "https://www.whatyouwear.store/" },
         icon: FaShoppingBag,
         image: whatyouwearImg,
-        gradient: "from-amber-400/10 to-orange-500/5"
+        year: "2024",
+        gradient: "from-amber-950/40 to-zinc-900"
     },
     {
-        title: "Quizora",
+        title: "StockSync Product Catalog Dashboard",
+        techStack: ["React", "React Router", "Tailwind CSS v4", "Vite", "Local Storage"],
+        description: "A responsive, high-performance React application designed for managing a product inventory catalog, built using React Router and Tailwind CSS v4 with Local Storage persistence.",
+        links: { github: "https://github.com/mitpatil07/Product-Catalog-Dashboard" },
+        icon: FaTachometerAlt,
+        image: productCatalogImg,
+        year: "2024",
+        gradient: "from-purple-950/40 to-zinc-900"
+    },
+    {
+        title: "Quizora Platform",
         techStack: ["React", "Express", "MongoDB", "Node.js", "Socket.io"],
-        description: "Interactive web-based quiz application providing a dynamic testing platform with real-time score tracking. Engineered a modular MERN backend to efficiently handle scalable quiz logic and dynamic question rendering.",
+        description: "An interactive, web-based quiz application with live scoreboards, custom room joining, and responsive questions managed by a MERN stack.",
         links: { github: "https://github.com/mitpatil07/QuizApp" },
         icon: FaQuestionCircle,
         image: quizoraImg,
-        gradient: "from-purple-500/10 to-pink-500/5"
+        year: "2024",
+        gradient: "from-purple-950/40 to-zinc-900"
     },
     {
-        title: "BookNest",
+        title: "Employee-Management-System",
+        techStack: ["Java", "Spring Boot", "MySQL", "Thymeleaf", "Bootstrap"],
+        description: "An enterprise administrative portal organizing department roles, secure employee logging, audit trail logs, and automated shift scheduling workflows.",
+        links: { github: "https://github.com/mitpatil07/Employee-Management-System" },
+        icon: FaUsers,
+        year: "2024",
+        gradient: "from-teal-950/40 to-zinc-900"
+    },
+    {
+        title: "BookNest Digital",
         techStack: ["React", "Node.js", "MySQL", "Express", "Firebase"],
-        description: "Full-stack digital library management system featuring a responsive React frontend coupled with a robust backend, enabling scalable CRUD operations for comprehensive book collection exploration and user reviews.",
+        description: "A digital library catalog system featuring dynamic search, review logs, and backend CRUD configurations supporting user explorations.",
         links: { github: "https://github.com/mitpatil07/BookNest" },
         icon: FaBookOpen,
-        gradient: "from-teal-400/10 to-emerald-500/5"
-    }
+        year: "2023",
+        gradient: "from-teal-950/40 to-zinc-900"
+    },    {
+        title: "AuraCRM - AI-First CRM",
+        techStack: ["Python", "FastAPI", "LangGraph", "SQLAlchemy", "React", "Redux"],
+        description: "An AI-First CRM module tailored for Healthcare Professionals, combining stateful LangGraph agents, multi-turn tool calling, and live UI synchronization.",
+        links: { github: "https://github.com/mitpatil07/AuraCRM" },
+        icon: FaRobot,
+        image: auracrmImg,
+        year: "2026",
+        gradient: "from-red-950/40 to-zinc-900"
+    },
 ];
 
-const ProjectCard = ({ project, index }) => {
-    const [isExpanded, setIsExpanded] = useState(false);
+const Projects = ({ searchQuery, setActiveModalItem }) => {
+    const sliderRef = useRef(null);
+
+    const handleScroll = (direction) => {
+        if (sliderRef.current) {
+            const { scrollLeft, clientWidth } = sliderRef.current;
+            const scrollAmount = clientWidth * 0.7;
+            const targetScroll = direction === 'left' 
+                ? scrollLeft - scrollAmount 
+                : scrollLeft + scrollAmount;
+            
+            sliderRef.current.scrollTo({
+                left: targetScroll,
+                behavior: 'smooth'
+            });
+        }
+    };
+
+    const filteredProjects = projects.filter(p => {
+        const query = searchQuery.toLowerCase();
+        return (
+            p.title.toLowerCase().includes(query) ||
+            p.description.toLowerCase().includes(query) ||
+            p.techStack.some(t => t.toLowerCase().includes(query))
+        );
+    });
+
+    if (searchQuery && filteredProjects.length === 0) {
+        return null;
+    }
 
     return (
-        <motion.div
-            layout
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            viewport={{ once: true }}
-            className="premium-glass rounded-3xl overflow-hidden border border-slate-200/50 flex flex-col h-full group transition-all duration-500"
-        >
-            {/* Visual Header */}
-            <div className="relative h-48 sm:h-56 flex-shrink-0 overflow-hidden bg-slate-100">
-                {project.image ? (
-                    <motion.img
-                        src={project.image}
-                        alt={project.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                        whileHover={{ scale: 1.05 }}
-                    />
-                ) : (
-                    <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-90 group-hover:opacity-100 transition-opacity duration-500 flex flex-col items-center justify-center`}>
-                        <motion.div
-                            whileHover={{ scale: 1.1, rotate: 5 }}
-                            transition={{ duration: 0.5 }}
-                        >
-                            <project.icon className="text-white text-6xl drop-shadow-2xl" />
-                        </motion.div>
-                    </div>
-                )}
-                {/* Overlay Gradient for consistency */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <section id="projects" className="relative py-4 z-10 select-none overflow-visible w-full">
+            <div className="px-6 sm:px-10 md:px-12 mb-2 text-left">
+                <h2 className="text-xl sm:text-2xl font-black text-white tracking-wide">
+                    Trending Now (Projects)
+                </h2>
             </div>
 
-            {/* Content */}
-            <div className="p-6 flex flex-col flex-grow">
-                <div className="flex justify-between items-start mb-3">
-                    <h3 className="text-xl font-black text-slate-800 tracking-tight group-hover:text-brand-600 transition-colors">
-                        {project.title}
-                    </h3>
-                </div>
-
-                <div className="flex flex-wrap gap-1.5 mb-4">
-                    {project.techStack.slice(0, isExpanded ? undefined : 3).map((tech, i) => (
-                        <span key={i} className="px-2 py-0.5 bg-brand-50/50 text-brand-600 rounded-md border border-brand-200/50 text-[10px] font-bold">
-                            {tech}
-                        </span>
-                    ))}
-                    {!isExpanded && project.techStack.length > 3 && (
-                        <span className="text-[10px] font-black text-slate-400 ml-1">+{project.techStack.length - 3}</span>
-                    )}
-                </div>
-
-                <motion.p
-                    layout
-                    className={`text-slate-600 text-xs font-medium leading-relaxed mb-6 ${isExpanded ? '' : 'line-clamp-2'}`}
+            {/* Slider Row Container */}
+            <div className="relative group/row overflow-visible">
+                
+                {/* Left scroll control arrow - Floating Round Button */}
+                <button
+                    onClick={() => handleScroll('left')}
+                    className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-zinc-900/90 border border-zinc-800 hover:bg-white hover:text-black flex items-center justify-center text-white opacity-0 group-hover/row:opacity-100 transition-all duration-300 pointer-events-auto shadow-2xl cursor-pointer"
                 >
-                    {project.description}
-                </motion.p>
+                    <FaChevronLeft size={16} />
+                </button>
 
-                <div className="mt-auto flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                        <motion.a
-                            href={project.links.github}
-                            target="_blank" rel="noreferrer"
-                            whileHover={{ scale: 1.1, y: -2 }}
-                            className="p-2 rounded-lg bg-slate-100 text-slate-600 hover:text-brand-600 hover:bg-brand-50 transition-all"
+                {/* Horizontal Scroll Element */}
+                <div
+                    ref={sliderRef}
+                    className="flex gap-4 overflow-x-auto scroll-smooth hide-scrollbar py-6 px-6 sm:px-12 overflow-y-visible"
+                >
+                    {filteredProjects.map((project, index) => (
+                        <div
+                            key={index}
+                            className="relative flex-shrink-0 w-44 sm:w-48 h-64 sm:h-72 bg-[#181818] rounded-md overflow-hidden border border-[#2C2C2C] transition-all duration-300 hover:scale-105 hover:z-30 hover:shadow-[0_12px_28px_rgba(0,0,0,0.85)] cursor-pointer group"
+                            onClick={() => setActiveModalItem(project)}
                         >
-                            <FaGithub size={16} />
-                        </motion.a>
-                        {project.links.live && (
-                            <motion.a
-                                href={project.links.live}
-                                target="_blank" rel="noreferrer"
-                                whileHover={{ scale: 1.1, y: -2 }}
-                                className="p-2 rounded-lg bg-slate-100 text-slate-600 hover:text-brand-600 hover:bg-brand-50 transition-all"
-                            >
-                                <FaExternalLinkAlt size={14} />
-                            </motion.a>
-                        )}
-                    </div>
+                            {/* Red M logo badge in the corner */}
+                            <div className="absolute top-2 left-2 z-10 bg-black/60 rounded px-1.5 py-0.5 text-xs font-bold text-[#E50914] flex items-center justify-center font-bebas">
+                                M
+                            </div>
 
-                    <button
-                        onClick={() => setIsExpanded(!isExpanded)}
-                        className="flex items-center gap-1.5 px-4 py-2 bg-slate-800 text-white rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-brand-600 transition-all shadow-md active:scale-95"
-                    >
-                        {isExpanded ? (
-                            <>Collapse <FaChevronUp size={8} /></>
-                        ) : (
-                            <>More Info <FaChevronDown size={8} /></>
-                        )}
-                    </button>
-                </div>
-            </div>
-        </motion.div>
-    );
-};
+                            {/* Card Media Header - Vertical Poster Aspect Ratio */}
+                            <div className="relative w-full h-full overflow-hidden bg-gradient-to-br from-red-950/20 to-black/50">
+                                {project.image ? (
+                                    <img
+                                        src={project.image}
+                                        alt={project.title}
+                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                    />
+                                ) : (
+                                    <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} flex flex-col items-center justify-center p-4`}>
+                                        <project.icon className="text-[#E50914] text-4xl opacity-40 mb-2" />
+                                        <span className="text-white text-xs font-black text-center uppercase tracking-wider">{project.title}</span>
+                                    </div>
+                                )}
+                                
+                                {/* Bottom Card Text & Detail Overlay (visible on hover) */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-100 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
+                                    <div className="space-y-1.5">
+                                        <h3 className="font-bebas text-lg tracking-wide text-white leading-tight">
+                                            {project.title}
+                                        </h3>
+                                        
+                                        <div className="flex items-center gap-1.5 text-[9px] font-bold text-zinc-300">
+                                            <span className="text-green-500">98% Match</span>
+                                            <span className="border border-zinc-700 text-zinc-400 px-1 rounded">ALL</span>
+                                            <span>{project.year}</span>
+                                        </div>
 
-const Projects = () => {
-    return (
-        <section id="projects" className="py-16 md:py-24 relative z-10">
-            <div className="container mx-auto px-5 sm:px-8 max-w-6xl">
+                                        {/* Description & Tech Tags (more info in card) */}
+                                        <p className="text-[9px] text-zinc-400 line-clamp-2 leading-tight mt-1">
+                                            {project.description}
+                                        </p>
+                                        <div className="flex flex-wrap gap-1 mt-1">
+                                            {project.techStack.slice(0, 3).map((t, idx) => (
+                                                <span key={idx} className="text-[8px] bg-red-950/20 text-red-400 border border-red-900/30 px-1 rounded font-bold">
+                                                    {t}
+                                                </span>
+                                            ))}
+                                        </div>
 
-                <motion.div
-                    initial={{ opacity: 0, y: 16 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="mb-12 md:mb-20 text-center"
-                >
-                    <span className="section-pill mb-4">Portfolio</span>
-                    <h2 className="text-4xl md:text-5xl font-black tracking-tight text-slate-800 mb-4">
-                        Selected <span className="text-gradient">Projects</span>
-                    </h2>
-                    <p className="text-slate-500 font-medium max-w-xl mx-auto text-sm">
-                        A curation of full-stack engineering, AI integration, and modular architectures designed for scale.
-                    </p>
-                </motion.div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {projects.map((project, index) => (
-                        <ProjectCard key={index} project={project} index={index} />
+                                        {/* Action buttons revealed in the overlay */}
+                                        <div className="flex items-center gap-1.5 pt-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                            <a
+                                                href={project.links.github}
+                                                target="_blank"
+                                                rel="noreferrer"
+                                                onClick={(e) => e.stopPropagation()}
+                                                className="w-6.5 h-6.5 rounded-full bg-white hover:bg-white/80 flex items-center justify-center text-black shadow active:scale-90 transition-all"
+                                                title="Source Code"
+                                            >
+                                                <FaGithub size={12} />
+                                            </a>
+                                            <button 
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    setActiveModalItem(project);
+                                                }}
+                                                className="w-6.5 h-6.5 rounded-full bg-[#2F2F2F]/80 border border-zinc-600 hover:border-white hover:bg-white/10 flex items-center justify-center text-white transition-all active:scale-90 ml-auto"
+                                            >
+                                                <HiChevronDown size={14} />
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     ))}
                 </div>
+
+                {/* Right scroll control arrow - Floating Round Button */}
+                <button
+                    onClick={() => handleScroll('right')}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-zinc-900/90 border border-zinc-800 hover:bg-white hover:text-black flex items-center justify-center text-white opacity-0 group-hover/row:opacity-100 transition-all duration-300 pointer-events-auto shadow-2xl cursor-pointer"
+                >
+                    <FaChevronRight size={16} />
+                </button>
             </div>
         </section>
     );
 };
 
+export { projects };
 export default Projects;

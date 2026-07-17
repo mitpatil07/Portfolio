@@ -1,126 +1,111 @@
 import React from 'react';
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
-import { HiSparkles, HiArrowRight } from 'react-icons/hi';
-import { FiArrowUpRight } from 'react-icons/fi';
+import { motion } from 'framer-motion';
+import { HiPlay, HiInformationCircle, HiVolumeUp, HiVolumeOff } from 'react-icons/hi';
+import { FaAward } from 'react-icons/fa';
+import billboardImg from '../assets/mitesh_billboard.png';
 
-const Hero = () => {
-    const { scrollY } = useScroll();
-    // Parallax scrolling effects - smoothed with useSpring
-    const yParallaxRaw = useTransform(scrollY, [0, 600], [0, 200]);
-    const opacityParallaxRaw = useTransform(scrollY, [0, 400], [1, 0]);
-
-    const yParallax = useSpring(yParallaxRaw, { stiffness: 100, damping: 30, restDelta: 0.001 });
-    const opacityParallax = useSpring(opacityParallaxRaw, { stiffness: 100, damping: 30, restDelta: 0.001 });
-
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: { staggerChildren: 0.12, delayChildren: 0.1 }
-        }
-    };
-
-    const itemVariants = {
-        hidden: { opacity: 0, y: 22 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } }
+const Hero = ({ setActiveModalItem, playTaDum, audioEnabled, setAudioEnabled }) => {
+    
+    const handleMoreInfo = () => {
+        // Open a detailed overview of Mitesh in the modal
+        setActiveModalItem({
+            title: "Mitesh Dipak Patil",
+            role: "Full-Stack Engineer & Passionate Creator",
+            company: "Available for Hire",
+            year: "2026",
+            grade: "CGPA: 8.23 (Computer Engineering)",
+            location: "Pune, India",
+            description: "An engineer by degree, creator by passion, and communicator by nature. Mitesh specializes in full-stack architecture, machine learning integrations, and creating pixel-perfect, performant user experiences. With hands-on experience in Django, Node.js, Express, React, PostgreSQL, and computer vision, he bridges the gap between complex logic and seamless designs.",
+            skills: ["React.js", "Django", "Node.js", "MongoDB", "Python", "C++", "OpenCV"],
+            gradient: "from-[#E50914]/30 to-black"
+        });
     };
 
     return (
-        <section id="home" className="w-full min-h-screen relative flex items-center justify-center overflow-hidden">
-
-
-            {/* Ambient accent blobs */}
-            <div className="absolute inset-0 pointer-events-none z-0">
-                <motion.div
-                    animate={{ scale: [1, 1.15, 1], opacity: [0.35, 0.55, 0.35] }}
-                    transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-                    className="absolute top-[-10%] left-[-5%] w-72 h-72 rounded-full bg-brand-600/20 blur-3xl"
+        <section id="home" className="relative w-full h-[85vh] sm:h-screen flex items-center justify-start overflow-hidden bg-black select-none">
+            {/* Ambient Spotlight Background / Scanner Line */}
+            <div className="absolute inset-0 z-0">
+                <img 
+                    src={billboardImg} 
+                    alt="Mitesh Patil Cinematic Billboard" 
+                    className="absolute right-0 top-0 h-full w-[85vw] lg:w-[70vw] object-cover opacity-50 z-0 pointer-events-none select-none"
                 />
-                <motion.div
-                    animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.4, 0.2] }}
-                    transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
-                    className="absolute bottom-[10%] right-[-5%] w-80 h-80 rounded-full bg-brand-300/25 blur-3xl"
-                />
+                
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_left,_var(--tw-gradient-stops))] from-red-950/25 via-[#141414] to-[#141414] opacity-85" />
+                <div className="absolute inset-0 bg-gradient-to-r from-black via-black/50 to-transparent" />
+                
+                {/* Netflix-style ambient scanlines or color splash */}
+                <div className="absolute top-1/2 left-[15%] w-96 h-96 -translate-y-1/2 bg-red-600/10 blur-[130px] rounded-full pointer-events-none" />
+                
+                {/* Horizontal bottom overlay that blends billboard into rows */}
+                <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#141414] to-transparent z-10" />
             </div>
 
-            <div className="container mx-auto px-5 sm:px-8 max-w-4xl z-10">
+            {/* Billboard Content */}
+            <div className="z-10 text-left pt-20 px-6 sm:px-10 md:px-12 max-w-3xl">
                 <motion.div
-                    style={{ y: yParallax, opacity: opacityParallax }}
-                    variants={containerVariants}
-                    initial="hidden"
-                    animate="visible"
-                    className="flex flex-col items-center text-center"
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                    className="max-w-2xl space-y-4"
                 >
-                    {/* Eyebrow label */}
-                    <motion.div
-                        variants={itemVariants}
-                        viewport={{ once: true }}
-                        className="mb-5"
-                    >
-                        <motion.span
-                            whileHover={{ scale: 1.05 }}
-                            className="inline-flex items-center gap-1.5 section-pill cursor-default"
-                        >
-                            <motion.span
-                                animate={{ rotate: [0, 20, -10, 20, 0] }}
-                                transition={{ repeat: Infinity, duration: 2.5, repeatDelay: 2 }}
-                            >
-                                <HiSparkles className="text-brand-600 text-xs" />
-                            </motion.span>
-                            Available for hire
-                        </motion.span>
-                    </motion.div>
+                    {/* Netflix original label */}
+                    <div className="flex items-center gap-2">
+                        <span className="font-bebas text-2xl tracking-widest text-[#E50914] font-black uppercase">M</span>
+                        <span className="text-[10px] font-bold text-zinc-300 tracking-[0.25em] uppercase">Original Series</span>
+                    </div>
 
-                    <motion.h1
-                        variants={itemVariants}
-                        className="text-3xl sm:text-5xl md:text-6xl font-black text-slate-800 mb-4 sm:mb-6 tracking-tight leading-[1.15]"
-                    >
-                        Engineer by degree,{' '}
-                        <span className="text-gradient">Creator by passion,</span>{' '}
-                        <br className="hidden sm:block" />
-                        Communicator by nature.
-                    </motion.h1>
+                    {/* Bold Cinematic Title */}
+                    <h1 className="text-5xl sm:text-7xl md:text-8xl font-black text-white font-bebas tracking-tight uppercase leading-[0.9] drop-shadow-xl select-all">
+                        Mitesh Patil
+                    </h1>
 
-                    <motion.p
-                        variants={itemVariants}
-                        className="text-sm sm:text-base md:text-lg text-slate-500 mb-8 sm:mb-10 max-w-xl mx-auto leading-relaxed font-medium px-4 text-center"
-                    >
-                        I design digital stories that blend{' '}
-                        <span className="text-brand-600 font-semibold">logic</span> with{' '}
-                        <span className="text-pink-500 font-semibold">emotion</span>
-                        {' '}- sometimes in code, sometimes in pixels.
-                    </motion.p>
+                    {/* Netflix tags info */}
+                    <div className="flex flex-wrap items-center gap-3 text-xs sm:text-sm font-semibold text-zinc-200">
+                        <span className="text-green-500 font-bold text-sm">98% Match</span>
+                        <span className="px-2 py-0.5 border border-zinc-500 text-zinc-300 text-[10px] sm:text-xs rounded font-bold">
+                            PG-13
+                        </span>
+                        <span className="text-zinc-300">2026 Release</span>
+                        <span className="px-1.5 py-0.5 text-[9px] border border-zinc-600 text-zinc-400 rounded font-black tracking-widest uppercase">
+                            Ultra HD
+                        </span>
+                        <span className="px-1.5 py-0.5 text-[9px] border border-zinc-600 text-zinc-400 rounded font-black tracking-widest uppercase">
+                            HDR
+                        </span>
+                        <span className="px-1.5 py-0.5 text-[9px] border border-zinc-600 text-zinc-400 rounded font-black tracking-widest uppercase">
+                            5.1
+                        </span>
+                    </div>
 
-                    <motion.div variants={itemVariants} className="flex justify-center gap-3 flex-col sm:flex-row px-4 sm:px-0">
-                        <motion.a
-                            href="#projects"
-                            whileHover={{ scale: 1.02, y: -2 }}
-                            whileTap={{ scale: 0.98 }}
-                            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3 bg-brand-600 text-white text-sm font-bold rounded-xl shadow-lg shadow-brand-600/25 transition-shadow hover:shadow-brand-500/40"
-                        >
-                            Explore Projects <FiArrowUpRight size={15} />
-                        </motion.a>
-                        <motion.a
+                    {/* Synopsis */}
+                    <p className="text-sm sm:text-base md:text-lg text-zinc-300 leading-relaxed drop-shadow font-medium max-w-xl text-justify">
+                        An engineer by degree and creator by passion. Follow Mitesh as he architects robust REST APIs, design sleek responsive frontends, and integrate computer vision algorithms into full-stack systems. Ready to deploy globally.
+                    </p>
+
+                    {/* Action buttons */}
+                    <div className="flex items-center gap-3.5 pt-2">
+                        <a
                             href="/resume.pdf"
                             target="_blank"
                             rel="noopener noreferrer"
-                            whileHover={{ scale: 1.02, y: -2 }}
-                            whileTap={{ scale: 0.98 }}
-                            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3 bg-white text-slate-800 text-sm font-bold rounded-xl shadow-sm border border-slate-100 hover:border-brand-500 hover:bg-brand-50 transition-all font-sans"
+                            className="flex items-center gap-2 px-6 sm:px-8 py-3 bg-white text-black font-bold text-sm sm:text-base rounded-md hover:bg-white/80 transition-all shadow-lg active:scale-95 duration-200 cursor-pointer"
                         >
-                            Resume <FiArrowUpRight size={15} className="text-brand-600" />
-                        </motion.a>
-                        <motion.a
-                            href="#contact"
-                            whileHover={{ scale: 1.02, y: -2 }}
-                            whileTap={{ scale: 0.98 }}
-                            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3 bg-slate-50 text-brand-600 text-sm font-bold rounded-xl shadow-sm border border-slate-200/50 hover:border-brand-500 hover:bg-white transition-all font-sans"
+                            <HiPlay size={24} className="fill-black text-black" />
+                            <span>Play Resume</span>
+                        </a>
+
+                        <button
+                            onClick={handleMoreInfo}
+                            className="flex items-center gap-2 px-6 sm:px-8 py-3 bg-zinc-600/70 text-white font-bold text-sm sm:text-base rounded-md hover:bg-zinc-600 border border-zinc-500/30 transition-all active:scale-95 duration-200"
                         >
-                            Let's Talk <HiArrowRight size={14} />
-                        </motion.a>
-                    </motion.div>
+                            <HiInformationCircle size={24} />
+                            <span>More Info</span>
+                        </button>
+                    </div>
                 </motion.div>
             </div>
+
         </section>
     );
 };

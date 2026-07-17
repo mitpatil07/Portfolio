@@ -2,94 +2,130 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { HiCodeBracket, HiPaintBrush, HiRocketLaunch } from 'react-icons/hi2';
 
-const stats = [
+const highlights = [
     {
         icon: HiCodeBracket,
-        label: "Logic",
-        text: "Full-Stack engineering with a focus on clean, maintainable code."
+        label: "Logic & Architecture",
+        text: "Engineering clean, maintainable, and high-performance server structures with robust API frameworks.",
+        badge: "Backend & Systems",
+        color: "from-red-500 to-rose-600"
     },
     {
         icon: HiPaintBrush,
-        label: "Design",
-        text: "Crafting intuitive UI/UX with modern glassmorphic aesthetics."
+        label: "Design & UX",
+        text: "Crafting beautiful, cinematic, and responsive frontends with smooth animations and state managers.",
+        badge: "Frontend & Interface",
+        color: "from-orange-500 to-red-600"
     },
     {
         icon: HiRocketLaunch,
-        label: "Impact",
-        text: "Building scalable solutions that solve real-world problems."
+        label: "Impact & Optimization",
+        text: "Deploying scalable client-server pipelines designed to optimize business logic and data workflows.",
+        badge: "Deployment & Scaling",
+        color: "from-red-600 to-amber-600"
     }
 ];
 
 const Summary = () => {
     return (
-        <section id="summary" className="py-16 md:py-24 relative z-10 w-full overflow-hidden">
-
-            {/* Ambient background decoration */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-full -z-10 opacity-40 pointer-events-none">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-brand-200/20 blur-[100px] rounded-full" />
-                <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-200/20 blur-[100px] rounded-full" />
+        <section id="summary" className="py-16 md:py-24 relative z-10 w-full overflow-hidden bg-[#141414]">
+            {/* Cinematic background spotlight glows */}
+            <div className="absolute inset-0 pointer-events-none -z-10 overflow-hidden">
+                <div className="absolute top-[20%] left-[-10%] w-[45vw] h-[45vw] rounded-full bg-red-950/15 blur-[120px] opacity-70" />
+                <div className="absolute bottom-[20%] right-[-10%] w-[40vw] h-[40vw] rounded-full bg-zinc-900/40 blur-[130px]" />
             </div>
 
-            <div className="container mx-auto px-5 sm:px-8 max-w-5xl relative z-10">
+            <div className="px-6 sm:px-10 md:px-12 w-full max-w-7xl mx-auto">
+                {/* Section Title */}
                 <motion.div
-                    initial={{ opacity: 0, y: 16 }}
+                    initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.1 }}
-                    className="mb-10 md:mb-14 text-center"
+                    viewport={{ once: true, amount: 0.2 }}
+                    className="mb-10 text-left"
                 >
-                    <span className="section-pill">About Me</span>
-                    <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-slate-800">
-                        Professional <span className="text-gradient">Summary</span>
+                    <span className="section-pill">About The Creator</span>
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white mt-2 leading-none uppercase font-bebas">
+                        Professional <span className="text-[#E50914] drop-shadow-[0_0_15px_rgba(229,9,20,0.3)]">Summary</span>
                     </h2>
                 </motion.div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                    {/* Main Narrative */}
+                {/* Main Content Grid */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+                    {/* Left Column: Narrative Card */}
                     <motion.div
-                        initial={{ opacity: 0, x: -20 }}
+                        initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.7 }}
+                        transition={{ duration: 0.8 }}
                         viewport={{ once: true }}
-                        className="lg:col-span-7"
+                        className="lg:col-span-6 flex"
                     >
-                        <div className="premium-glass rounded-3xl p-6 sm:p-10 border border-slate-200/50 shadow-2xl relative overflow-hidden">
-                            {/* Subtle corner accent */}
-                            <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-brand-600/10 to-transparent -mr-12 -mt-12 rounded-full" />
+                        <div className="bg-[#181818]/60 backdrop-blur-md border border-[#2F2F2F] hover:border-red-900/50 rounded-2xl p-8 sm:p-10 shadow-2xl flex flex-col justify-between relative overflow-hidden transition-all duration-500 group/narrative flex-1">
+                            {/* Subtle red linear accent line on left */}
+                            <div className="absolute top-0 left-0 w-[4px] h-full bg-gradient-to-b from-[#E50914] to-transparent opacity-70" />
+                            
+                            {/* Background decoration */}
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-radial-gradient from-red-600/10 to-transparent blur-2xl -mr-16 -mt-16 rounded-full group-hover/narrative:from-red-600/20 transition-all duration-500" />
 
-                            <div className="text-slate-600 text-base sm:text-lg leading-relaxed font-medium text-left space-y-6 relative z-10">
-                                <p className="text-slate-800 text-2xl sm:text-3xl font-black leading-tight tracking-tight">
-                                    I bridge the gap between <span className="text-brand-600">complex logic</span> and <span className="text-purple-600">seamless user experiences</span>.
+                            <div className="text-zinc-300 text-base sm:text-lg leading-relaxed space-y-6 relative z-10 text-justify">
+                                <p className="text-white text-2xl sm:text-3xl font-black leading-tight tracking-tight text-left">
+                                    I bridge the gap between <span className="text-[#E50914] drop-shadow-[0_0_8px_rgba(229,9,20,0.2)] font-semibold">complex logic</span> and <span className="text-white underline decoration-[#E50914]/50 decoration-2 underline-offset-4">seamless user experiences</span>.
                                 </p>
-                                <p className="opacity-90">
-                                    As a Full Stack Developer, I specialize in building modern web architectures that are both technically rigorous and aesthetically pleasing. From architecting robust RESTful APIs to crafting responsive glassmorphic interfaces, I am dedicated to delivering high-impact software.
+                                <p className="opacity-95 text-zinc-400 text-sm sm:text-base leading-relaxed">
+                                    As a Full Stack Developer, I specialize in building modern web architectures that are both technically rigorous and aesthetically pleasing. From architecting robust RESTful APIs to crafting responsive Netflix-style interfaces, I am dedicated to delivering high-impact software.
                                 </p>
-                                <p className="opacity-90">
+                                <p className="opacity-95 text-zinc-400 text-sm sm:text-base leading-relaxed">
                                     My approach combines technical precision with an entrepreneurial mindset, ensuring that every line of code contributes to a meaningful, scalable solution.
                                 </p>
+                            </div>
+
+                            {/* Fictional cinematic telemetry footer info */}
+                            <div className="mt-8 pt-6 border-t border-[#2F2F2F] flex flex-wrap gap-4 text-xs font-bold text-zinc-500 tracking-wider">
+                                <div>
+                                    STATUS: <span className="text-green-500">READY TO DEPLOY</span>
+                                </div>
+                                <div className="hidden sm:block">|</div>
+                                <div>
+                                    LOC: <span className="text-zinc-300">INDIA</span>
+                                </div>
+                                <div className="hidden sm:block">|</div>
+                                <div>
+                                    ROLE: <span className="text-zinc-300 font-extrabold uppercase">FULL STACK DEVELOPER</span>
+                                </div>
                             </div>
                         </div>
                     </motion.div>
 
-                    {/* Quick Highlights */}
-                    <div className="lg:col-span-5 grid grid-cols-1 gap-4">
-                        {stats.map((stat, i) => (
-                            <motion.div
-                                key={i}
-                                initial={{ opacity: 0, x: 20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                transition={{ duration: 0.5, delay: i * 0.1 }}
-                                viewport={{ once: true }}
-                                whileHover={{ scale: 1.02, x: 5 }}
-                                className="premium-glass p-5 rounded-2xl border border-brand-500/10 flex items-center gap-4 group transition-all"
-                            >
-                                <div className="w-12 h-12 rounded-xl bg-brand-50 border border-brand-200 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-600 text-brand-600 group-hover:text-white transition-all duration-300">
-                                    <stat.icon size={22} />
-                                </div>
-                                <div>
-                                    <h4 className="text-sm font-black text-slate-800 mb-0.5">{stat.label}</h4>
-                                    <p className="text-[11px] sm:text-xs text-slate-500 font-medium leading-tight">{stat.text}</p>
-                                </div>
-                            </motion.div>
+                    {/* Right Column: Highlights cards */}
+                    <div className="lg:col-span-6 flex flex-col justify-between gap-5">
+                        {highlights.map((highlight, i) => (
+                          <motion.div
+                              key={i}
+                              initial={{ opacity: 0, x: 30 }}
+                              whileInView={{ opacity: 1, x: 0 }}
+                              transition={{ duration: 0.6, delay: i * 0.15 }}
+                              viewport={{ once: true }}
+                              whileHover={{ scale: 1.015, x: 6 }}
+                              className="bg-[#181818]/60 backdrop-blur-md border border-[#2F2F2F] hover:border-red-900/40 p-6 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center gap-5 group transition-all duration-300 shadow-lg hover:shadow-[0_8px_30px_rgba(229,9,20,0.06)] cursor-pointer flex-1"
+                          >
+                              {/* Glowing Icon Container */}
+                              <div className={`w-14 h-14 rounded-2xl bg-zinc-900/90 border border-zinc-700/60 flex items-center justify-center flex-shrink-0 group-hover:bg-[#E50914] text-red-500 group-hover:text-white transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(229,9,20,0.4)] group-hover:border-[#E50914]`}>
+                                  <highlight.icon size={26} />
+                              </div>
+
+                              <div className="text-left space-y-1 flex-1">
+                                  <div className="flex items-center justify-between flex-wrap gap-2">
+                                      <h4 className="text-base font-black text-white leading-tight uppercase font-sans tracking-wide">
+                                          {highlight.label}
+                                      </h4>
+                                      <span className="text-[9px] uppercase tracking-widest font-extrabold text-zinc-500 bg-zinc-900 border border-zinc-800 px-2 py-0.5 rounded-full group-hover:border-red-900/40 group-hover:text-red-400 transition-colors">
+                                          {highlight.badge}
+                                      </span>
+                                  </div>
+                                  <p className="text-xs text-zinc-400 font-semibold leading-relaxed group-hover:text-zinc-300 transition-colors text-justify">
+                                      {highlight.text}
+                                  </p>
+                              </div>
+                          </motion.div>
                         ))}
                     </div>
                 </div>

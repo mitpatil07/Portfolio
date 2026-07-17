@@ -1,23 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaEnvelope, FaInstagram } from 'react-icons/fa';
-import { HiChatBubbleLeftRight, HiRocketLaunch, HiCodeBracket } from 'react-icons/hi2';
 import { MdSend } from 'react-icons/md';
-
-const highlights = [
-    {
-        icon: HiChatBubbleLeftRight,
-        text: "Let's talk code, design, or big ideas - no small talk required.",
-    },
-    {
-        icon: HiRocketLaunch,
-        text: "Looking for someone who codes like an engineer and thinks like an entrepreneur?",
-    },
-    {
-        icon: HiCodeBracket,
-        text: "Coffee + Code + Conversation = Collaboration. Let's build something real.",
-    },
-];
 
 const Contact = () => {
     const [status, setStatus] = useState('idle'); // 'idle' | 'sending' | 'success' | 'error'
@@ -30,7 +14,6 @@ const Contact = () => {
         const data = new FormData(form);
 
         try {
-            // Use the direct email endpoint to avoid 404s if you don't have a Form ID yet.
             const response = await fetch("https://formspree.io/mitesh8767@gmail.com", {
                 method: "POST",
                 body: data,
@@ -54,193 +37,117 @@ const Contact = () => {
     };
 
     return (
-        <section id="contact" className="py-16 md:py-24 relative z-10">
+        <section id="contact" className="relative py-16 md:py-24 z-10 w-full overflow-hidden flex items-center justify-center bg-black/40">
+            {/* Ambient Background Glow */}
+            <div className="absolute inset-0 z-0 pointer-events-none opacity-30">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-red-600/10 blur-[130px] rounded-full" />
+            </div>
 
-            {/* Outer decorative border with tinted glass effect */}
-            <div className="absolute inset-6 md:inset-10 border border-brand-300/15 rounded-3xl pointer-events-none hidden md:block backdrop-blur-[3px] bg-brand-500/[0.03] shadow-[inset_0_0_80px_rgba(120,149,250,0.2)]" />
-
-            <div className="container mx-auto px-5 sm:px-8 max-w-3xl relative z-20">
-
-                {/* Top CTA */}
+            <div className="container mx-auto px-5 max-w-lg z-10 flex flex-col items-center">
+                
+                {/* Netflix-style Sign-In Panel */}
                 <motion.div
-                    initial={{ opacity: 0, y: 24 }}
+                    initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.7 }}
-                    viewport={{ once: false, amount: 0.1 }}
-                    className="text-center mb-10 md:mb-14"
+                    transition={{ duration: 0.6 }}
+                    viewport={{ once: true }}
+                    className="w-full bg-[#000000]/75 border border-zinc-800 rounded-lg p-8 sm:p-12 shadow-2xl relative overflow-hidden"
                 >
-                    <span className="section-pill">Contact</span>
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-800 mb-5 tracking-tight leading-snug">
-                        Let's Build Something{' '}
-                        <span className="text-gradient">Extraordinary</span>
+                    <AnimatePresence>
+                        {status === 'success' && (
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                className="absolute inset-0 z-50 bg-[#141414]/95 flex flex-col items-center justify-center text-center p-6"
+                            >
+                                <div className="w-16 h-16 bg-green-500/10 text-green-500 rounded-full flex items-center justify-center mb-4 border border-green-500/20 shadow-sm animate-bounce">
+                                    <MdSend size={32} />
+                                </div>
+                                <h4 className="text-xl font-bold text-white mb-2">Message Broadcasted!</h4>
+                                <p className="text-sm text-zinc-400 font-medium px-4 leading-relaxed">
+                                    Your email subscription request is successful! I will review your inquiry and reply to you shortly.
+                                </p>
+                            </motion.div>
+                        )}
+                        {status === 'error' && (
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                className="absolute inset-0 z-50 bg-[#141414]/95 flex flex-col items-center justify-center text-center p-6"
+                            >
+                                <div className="w-16 h-16 bg-red-500/10 text-red-500 rounded-full flex items-center justify-center mb-4 border border-red-500/20 shadow-sm">
+                                    <MdSend size={32} className="rotate-180" />
+                                </div>
+                                <h4 className="text-xl font-bold text-white mb-2">Transmission Failed</h4>
+                                <p className="text-sm text-zinc-400 font-medium px-4 leading-relaxed">
+                                    Unable to connect. Please review details or contact me directly at mitesh8767@gmail.com.
+                                </p>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
+
+                    <h2 className="text-3xl font-black text-white mb-8 tracking-tight text-left">
+                        Let's Connect
                     </h2>
 
-                    {/* Highlights */}
-                    <div className="flex flex-col gap-3 mb-8 max-w-md mx-auto text-left">
-                        {highlights.map((h, i) => (
-                            <motion.div
-                                key={i}
-                                initial={{ opacity: 0, x: -16 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                transition={{ duration: 0.5, delay: i * 0.1 }}
-                                viewport={{ once: false }}
-                                className="flex items-start gap-3"
-                            >
-                                <div className="w-7 h-7 rounded-lg bg-brand-600 border border-brand-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                    <h.icon className="text-white text-sm" />
-                                </div>
-                                <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">{h.text}</p>
-                            </motion.div>
-                        ))}
-                    </div>
-
-                    <div className="flex flex-wrap justify-center gap-3">
-                        <motion.a
-                            href="#contact-form"
-                            whileHover={{ scale: 1.04, y: -2 }}
-                            whileTap={{ scale: 0.97 }}
-                            className="flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-purple-500 to-pink-500 shadow-md shadow-purple-500/15 cursor-pointer"
-                        >
-                            <FaEnvelope size={12} /> Email Me
-                        </motion.a>
-                        <motion.a
-                            href="https://linkedin.com/in/mitpatil07"
-                            target="_blank" rel="noreferrer"
-                            whileHover={{ scale: 1.04, y: -2 }}
-                            whileTap={{ scale: 0.97 }}
-                            className="flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm text-white bg-[#0A66C2] shadow-md shadow-[#0A66C2]/15"
-                        >
-                            <FaLinkedin size={12} /> LinkedIn
-                        </motion.a>
-                        <motion.a
-                            href="https://github.com/mitpatil07"
-                            target="_blank" rel="noreferrer"
-                            whileHover={{ scale: 1.04, y: -2 }}
-                            whileTap={{ scale: 0.97 }}
-                            className="flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm text-white bg-slate-800 shadow-md shadow-slate-800/15"
-                        >
-                            <FaGithub size={12} /> GitHub
-                        </motion.a>
-                        <motion.a
-                            href="https://www.instagram.com/mitpatil_07"
-                            target="_blank" rel="noreferrer"
-                            whileHover={{ scale: 1.04, y: -2 }}
-                            whileTap={{ scale: 0.97 }}
-                            className="flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm text-white bg-gradient-to-br from-[#833ab4] via-[#fd1d1d] to-[#fcb045] shadow-md shadow-red-500/15"
-                        >
-                            <FaInstagram size={12} /> Instagram
-                        </motion.a>
-                    </div>
-                </motion.div>
-
-                {/* Contact Form */}
-                <motion.div
-                    initial={{ opacity: 0, y: 24 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.7, delay: 0.15 }}
-                    viewport={{ once: false, amount: 0.1 }}
-                >
-                    <div className="text-center mb-5">
-                        <h3 className="text-xl sm:text-2xl font-black text-slate-800 mb-1">
-                            Hire <span className="text-brand-600">Me</span>
-                        </h3>
-                        <p className="text-xs sm:text-sm text-slate-500 font-medium max-w-sm mx-auto">
-                            Looking for someone who codes with passion and vision? Let's make it official.
-                        </p>
-                    </div>
-
-                    <motion.form
-                        id="contact-form"
-                        onSubmit={handleSubmit}
-                        initial={{ opacity: 0, scale: 0.98 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.5, delay: 0.25 }}
-                        viewport={{ once: false }}
-                        className="premium-glass rounded-2xl p-5 sm:p-7 text-left border border-slate-200/50 shadow-2xl relative overflow-hidden bg-brand-50/20 backdrop-blur-xl"
-                    >
-                        <AnimatePresence>
-                            {status === 'success' && (
-                                <motion.div
-                                    initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    exit={{ opacity: 0, y: -10 }}
-                                    className="absolute inset-0 z-50 bg-white/95 backdrop-blur-md flex flex-col items-center justify-center text-center p-6"
-                                >
-                                    <div className="w-16 h-16 bg-green-500/10 text-green-600 rounded-full flex items-center justify-center mb-4 border border-green-500/20 shadow-sm">
-                                        <MdSend size={32} />
-                                    </div>
-                                    <h4 className="text-xl font-black text-slate-800 mb-1">Message Sent!</h4>
-                                    <p className="text-sm text-slate-600 font-medium px-4">Thanks for reaching out! I've received your message and will reply shortly.</p>
-                                </motion.div>
-                            )}
-                            {status === 'error' && (
-                                <motion.div
-                                    initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    exit={{ opacity: 0, y: -10 }}
-                                    className="absolute inset-0 z-50 bg-white/95 backdrop-blur-md flex flex-col items-center justify-center text-center p-6"
-                                >
-                                    <div className="w-16 h-16 bg-red-500/10 text-red-600 rounded-full flex items-center justify-center mb-4 border border-red-500/20 shadow-sm">
-                                        <MdSend size={32} className="rotate-180" />
-                                    </div>
-                                    <h4 className="text-xl font-black text-slate-800 mb-1">Oops!</h4>
-                                    <p className="text-sm text-slate-600 font-medium shadow-sm">Something went wrong. Please try again or email me directly.</p>
-                                </motion.div>
-                            )}
-                        </AnimatePresence>
-
-                        <div className="flex flex-col gap-5">
-                            <div className="border-b border-slate-200 focus-within:border-brand-500 transition-colors">
-                                <input
-                                    type="text"
-                                    name="name"
-                                    placeholder="Your Name"
-                                    className="w-full bg-transparent py-2.5 text-slate-800 placeholder-slate-400 font-medium focus:outline-none text-sm"
-                                    required
-                                />
-                            </div>
-                            <div className="border-b border-slate-200 focus-within:border-brand-500 transition-colors">
-                                <input
-                                    type="email"
-                                    name="email"
-                                    placeholder="Your Email"
-                                    className="w-full bg-transparent py-2.5 text-slate-800 placeholder-slate-400 font-medium focus:outline-none text-sm"
-                                    required
-                                />
-                            </div>
-                            <div className="border-b border-slate-200 focus-within:border-brand-500 transition-colors">
-                                <textarea
-                                    name="message"
-                                    placeholder="Your Message"
-                                    rows="4"
-                                    className="w-full bg-transparent py-2.5 text-slate-800 placeholder-slate-400 font-medium focus:outline-none resize-none text-sm"
-                                    required
-                                />
-                            </div>
-                            <motion.button
-                                type="submit"
-                                disabled={status === 'sending'}
-                                whileHover={{ scale: 1.02 }}
-                                whileTap={{ scale: 0.98 }}
-                                className={`mt-2 flex items-center justify-center gap-2 w-full py-3 rounded-xl font-bold text-sm text-white transition-all shadow-md ${status === 'sending'
-                                    ? 'bg-slate-400 cursor-not-allowed opacity-70'
-                                    : 'bg-gradient-to-r from-brand-600 to-brand-900 hover:opacity-90 shadow-brand-900/15'
-                                    }`}
-                            >
-                                {status === 'sending' ? (
-                                    <>
-                                        <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                                        Sending...
-                                    </>
-                                ) : (
-                                    <>
-                                        <MdSend size={14} /> Send Message
-                                    </>
-                                )}
-                            </motion.button>
+                    <form onSubmit={handleSubmit} className="space-y-6 text-left">
+                        {/* Name Input */}
+                        <div className="relative">
+                            <input
+                                type="text"
+                                name="name"
+                                required
+                                placeholder="Your Name"
+                                className="w-full bg-[#333] hover:bg-[#3f3f3f] focus:bg-[#454545] text-white border-b-2 border-transparent focus:border-red-600 rounded px-5 py-4 placeholder-zinc-400 font-semibold focus:outline-none transition-all text-sm"
+                            />
                         </div>
-                    </motion.form>
+
+                        {/* Email Input */}
+                        <div className="relative">
+                            <input
+                                type="email"
+                                name="email"
+                                required
+                                placeholder="Your Email Address"
+                                className="w-full bg-[#333] hover:bg-[#3f3f3f] focus:bg-[#454545] text-white border-b-2 border-transparent focus:border-red-600 rounded px-5 py-4 placeholder-zinc-400 font-semibold focus:outline-none transition-all text-sm"
+                            />
+                        </div>
+
+                        {/* Message Input */}
+                        <div className="relative">
+                            <textarea
+                                name="message"
+                                required
+                                rows="4"
+                                placeholder="Your Message / Project Proposal"
+                                className="w-full bg-[#333] hover:bg-[#3f3f3f] focus:bg-[#454545] text-white border-b-2 border-transparent focus:border-red-600 rounded px-5 py-4 placeholder-zinc-400 font-semibold focus:outline-none transition-all text-sm resize-none"
+                            />
+                        </div>
+
+                        {/* Netflix-style Red CTA button */}
+                        <motion.button
+                            type="submit"
+                            disabled={status === 'sending'}
+                            whileHover={{ scale: 1.01 }}
+                            whileTap={{ scale: 0.99 }}
+                            className={`w-full py-4 bg-[#E50914] text-white font-bold rounded shadow-lg transition-all text-base uppercase tracking-wider ${
+                                status === 'sending' ? 'opacity-65 cursor-not-allowed' : 'hover:bg-[#B81D24]'
+                            }`}
+                        >
+                            {status === 'sending' ? (
+                                <div className="flex items-center justify-center gap-2">
+                                    <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                                    <span>Sending...</span>
+                                </div>
+                            ) : (
+                                <span>Send Message / Subscribe</span>
+                            )}
+                        </motion.button>
+                    </form>
                 </motion.div>
+
             </div>
         </section>
     );

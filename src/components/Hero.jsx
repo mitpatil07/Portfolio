@@ -84,22 +84,22 @@ const Hero = ({ setActiveModalItem, playTaDum, audioEnabled, setAudioEnabled }) 
                     </p>
 
                     {/* Action buttons */}
-                    <div className="flex items-center gap-3.5 pt-2">
+                    <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
                         <a
                             href="/resume.pdf"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-2 px-6 sm:px-8 py-3 bg-white text-black font-bold text-sm sm:text-base rounded-md hover:bg-white/80 transition-all shadow-lg active:scale-95 duration-200 cursor-pointer"
+                            className="flex items-center justify-center gap-2 px-6 sm:px-8 py-3 bg-white text-black font-bold text-sm sm:text-base rounded-md hover:bg-white/80 transition-all shadow-lg active:scale-95 duration-200 cursor-pointer w-full sm:w-auto whitespace-nowrap"
                         >
-                            <HiPlay size={24} className="fill-black text-black" />
+                            <HiPlay size={22} className="fill-black text-black flex-shrink-0" />
                             <span>Play Resume</span>
                         </a>
 
                         <button
                             onClick={handleMoreInfo}
-                            className="flex items-center gap-2 px-6 sm:px-8 py-3 bg-zinc-600/70 text-white font-bold text-sm sm:text-base rounded-md hover:bg-zinc-600 border border-zinc-500/30 transition-all active:scale-95 duration-200"
+                            className="flex items-center justify-center gap-2 px-6 sm:px-8 py-3 bg-zinc-600/70 text-white font-bold text-sm sm:text-base rounded-md hover:bg-zinc-600 border border-zinc-500/30 transition-all active:scale-95 duration-200 w-full sm:w-auto whitespace-nowrap"
                         >
-                            <HiInformationCircle size={24} />
+                            <HiInformationCircle size={22} className="flex-shrink-0" />
                             <span>More Info</span>
                         </button>
                     </div>

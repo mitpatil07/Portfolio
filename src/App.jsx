@@ -110,7 +110,7 @@ function App() {
 
         <Header searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
 
-        <main className="relative z-10 flex flex-col gap-6 md:gap-10 pb-24 lg:pb-12 lg:pl-20">
+        <main className="relative z-10 flex flex-col gap-6 md:gap-10 pb-0 lg:pl-20">
           <Hero
             setActiveModalItem={setActiveModalItem}
             playTaDum={playTaDum}

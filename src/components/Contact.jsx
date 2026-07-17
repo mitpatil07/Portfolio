@@ -142,7 +142,7 @@ const Contact = () => {
                                     <span>Sending...</span>
                                 </div>
                             ) : (
-                                <span>Send Message / Subscribe</span>
+                                <span>Let's Begin</span>
                             )}
                         </motion.button>
                     </form>

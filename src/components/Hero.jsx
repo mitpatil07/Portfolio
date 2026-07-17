@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { HiPlay, HiInformationCircle, HiVolumeUp, HiVolumeOff } from 'react-icons/hi';
 import { FaAward } from 'react-icons/fa';
-import billboardImg from '../assets/mitesh_billboard.png';
+import billboardImg from '../assets/bg.jpg';
 
 const Hero = ({ setActiveModalItem, playTaDum, audioEnabled, setAudioEnabled }) => {
     

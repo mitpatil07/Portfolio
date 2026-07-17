@@ -11,6 +11,7 @@ import quizoraImg from '../assets/quizora.png';
 import shopifyCroImg from '../assets/shopify_cro.png';
 import productCatalogImg from '../assets/product_catalog.png';
 import auracrmImg from '../assets/auracrm.png';
+import voiceportraitImg from '../assets/voiceportrait.png';
 
 const projects = [
 
@@ -30,6 +31,7 @@ const projects = [
         description: "A professional-grade, open-source AI platform designed to transform static 2D illustrations and anime characters into cinematic, talking narrators using Wav2Lip.",
         links: { github: "https://github.com/mitpatil07/VoicePortrait" },
         icon: FaRobot,
+        image: voiceportraitImg,
         year: "2025",
         gradient: "from-pink-950/40 to-zinc-900"
     },
